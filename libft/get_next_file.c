@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 18:03:01 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/13 17:43:07 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/13 19:10:09 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ char	*next(char *s)
 	return (knife);
 }
 
-char	*get_next_line(int fd)
+char	*get_next_file(int fd)
 {
 	static char	*fox;
 	char		*result;
