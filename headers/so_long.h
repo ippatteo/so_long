@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/14 12:08:37 by mcamilli          #+#    #+#             */
+/*   Updated: 2023/09/14 13:08:53 by mcamilli         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
@@ -8,11 +20,13 @@
 # include <string.h>
 # include "../libft/libft.h"
 # include "../minilibx/mlx.h"
+# include "../printf/ft_printf.h"
 
 typedef struct t_start
 {
-	int h;
-	char **map;
+	int		width;
+	int		height;
+	char	**map;
 }	t_complete;
 
 int		exit_point(t_complete *game);
