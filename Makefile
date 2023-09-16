@@ -6,12 +6,13 @@ CFLAGS := -Wall -Wextra -Werror -Iheaders/
 
 SOURCE := game_logic/*.c
 LIBFT := libft/*.c
+PRINTF := printf/*.c
 LIBRARY := -Lminilibx -lmlx -framework OpenGL -framework AppKit
 MINILIBX := minilibx/
 
 all:
 	make -C $(MINILIBX)
-	$(CC) $(CFLAGS) $(SOURCE) $(LIBFT) -o $(NAME)
+	$(CC) $(CFLAGS) $(SOURCE) $(LIBFT) $(PRINTF) -o $(NAME)
 
 clean:
 

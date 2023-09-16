@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   movement.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/06 09:32:28 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/14 17:41:39 by mcamilli         ###   ########.fr       */
+/*   Created: 2023/09/15 12:35:17 by mcamilli          #+#    #+#             */
+/*   Updated: 2023/09/15 16:29:20 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../headers/so_long.h"
 
-char	*ft_strdup(const char *s1)
+int youmove(t_complete *game, int x, int y, int mx, int my)
 {
-	size_t	b;
-	char	*s2;
-
-	b = ft_strlen(s1) + 1;
-	s2 = (char *)ft_calloc(b, sizeof(char));
-	if (!s2)
-		return (NULL);
-	ft_strlcpy (s2, s1, b);
-	return (s2);
+   if (game->map[mx][my] == "0")
+   {
+        game->map[mx][my] = game->map[x][y];
+        game->map[x][y] = "0";
+        game->steps++      
+   }
+   if (game->map[mx][my] == "c")
+    {
+        game->map[mx][my] = game->map[x][y];
+        game->map[x][y] = "0";
+        game->steps++
+              
+   }
 }

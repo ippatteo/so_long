@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 15:07:07 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/04/25 12:35:12 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/14 17:51:06 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,9 @@ int	srch(char const *s1, char const *s2)
 {
 	int	i;
 	int	t;
-	int	sign;
 
 	t = 0;
 	i = 0;
-	sign = 1;
 	while (s1[i] != '\0')
 	{
 		while (s2[t] != '\0')
@@ -49,8 +47,10 @@ int	rsrch(char const *s1, char const *s2)
 		while (s2[t] != '\0')
 		{
 			if (s1[i] == s2[t])
-				break ;
+			{
 				t++;
+				break;
+			}
 		}
 		if (s2[t] == '\0')
 			return (i);
@@ -75,8 +75,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 	len = rsrch(s1, set);
 	s3 = (char *)malloc((len - i + 2) * sizeof(char));
 	if (!s3)
+	{
 		return (NULL);
 		cazzo = 0;
+	}
 	while (i <= len)
 	{
 		s3[cazzo] = s1[i];

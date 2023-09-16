@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 03:00:55 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/14 13:05:04 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/14 16:50:45 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <string.h>
 # include <ctype.h>
 # include <unistd.h>
+# include <stdint.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 10
@@ -63,6 +64,7 @@ char	*risultato(char *s);
 char	*ft_read_file(int fd, char *stash);
 char	*next(char *s);
 char	*get_next_file(int fd);
+void	ft_putstr_fd(char *s, int fd);
 typedef struct s_list
 {
 	void			*content;
