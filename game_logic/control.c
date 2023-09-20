@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 15:00:30 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/20 19:40:58 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/20 19:47:04 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,14 +103,16 @@ int rectangular(t_complete *game)
     int b;
 
     a = 0;
-    b = 0;
+    b = ft_strlen(game->map[a]);
     if (game->height != game->width)
         return(0);
     while (game->map[a])
     {
-        if (b)
-            b = ft_strlen(game->map[a])
+        if (ft_strlen(game->map[a]) != b)
+            return (0)
+        a++;
     }
+    return (1)
 }
 
 int megatroll(t_complete *game)
@@ -121,7 +123,7 @@ int megatroll(t_complete *game)
         return (0);
     if ((scan1(game, "P") * scan1(game, "E")) != 1)
         return (0);
-    if (!scanintrude(game))
+    if (!scanintrude(game) || !rectangular(game))
         return(0);
     if (!pathfind(game))
         return (0);

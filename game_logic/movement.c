@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 12:35:17 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/20 19:38:48 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/20 20:24:03 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,58 +21,90 @@ int youmove(t_complete *game, int x, int y, int mx, int my)
         return (1) 
    }
    if (game->map[mx][my] == "C")
-    {
+   {
         game->map[mx][my] = game->map[x][y];
         game->map[x][y] = "0";
         game->coins--;
         return (1);
-   }
-   if (game->map[mx][my] == "P")
+     }
+   if (game->map[mx][my] == "P" && game->coins == 0)
     {
         game->map[mx][my] = game->map[x][y];
         game->map[x][y] = "0";
         return (2)
-   }
+     }
    return(0);
 }
 
-int up(t_complete *game)
+void up(t_complete *game)
 {
      int x
 
-     x = 0;
      x = youmove(game,game->P1x,game->P1y, game->P1x-1, game->P1y);
-     game->P1x--;
-     return(x);
+     if (x)
+     {
+          printmap(game->mappe);
+          game->P1x--; 
+     } 
+     if(x == 2)
+     {
+          exit_point(evviva);
+          return;
+     } 
+     return;
 }
 
-int down(t_complete *game)
+void down(t_complete *game)
 {
      int x
 
-     x = 0;
      x = youmove(game,game->P1x,game->P1y, game->P1x+1, game->P1y);
-     game->P1x++;
-     return(x);
+     if(x)
+     {
+          printmap(game->mappe);
+          game->P1y++; 
+     }
+     if(x == 2)
+     {
+          exit_point(evviva);
+          return;
+     } 
+     return;
 }
 
 
-int left(t_complete *game)
+void left(t_complete *game)
 {
      int x
 
-     x = 0;
      x = youmove(game,game->P1x,game->P1y, game->P1x, game->P1y-1);
-     game->P1y--;
-     return(x);
+     if(x)
+     {
+          printmap(game->mappe);
+          game->P1y--; 
+     }
+     if(x == 2)
+     {
+          exit_point(evviva);
+          return;
+     } 
+     return;
 }
 
-int right(t_complete *game)
+void right(t_complete *game)
 {
      int x
 
-     x = 0;
      x = youmove(game,game->P1x,game->P1y, game->P1x, game->P1y+1);
-     game->P1y++;
-     return(x);
+     if (x)
+     {
+          printmap(game->mappe);
+          game->P1y++; 
+     }
+     if(x == 2)
+     {
+          exit_point(evviva);
+          return;
+     } 
+     return;
 }
