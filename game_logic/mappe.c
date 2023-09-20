@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 19:22:08 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/15 12:42:48 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/20 17:09:44 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,10 @@ void	printmap(char **c, t_complete *game)
 	}	
 }
 
-int	map(int ac, char **av, t_complete	*game)
+int	mapread(int ac, char **av, t_complete	*game)
 {
 	int			fd1;
 	char		*line;
-	
 
 	if (ac == 2)
 	{
