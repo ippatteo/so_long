@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 15:00:30 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/20 18:28:01 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/20 19:40:58 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,8 @@ int scanwall(t_complete *game, char c)
     {
         while (game->map[a][b])
         {
-            if ((game->map[a][b] == c) && ((a == 0) || (b == 0) || (a == game->height-1) ||
+            if ((game->map[a][b] == c) &&
+             ((a == 0) || (b == 0) || (a == game->height-1) ||
              (b == game->width-1)))
                 e++;
             b++;
@@ -88,9 +89,28 @@ int scanC(t_complete *game)
     a = 0;
     b = 0;
     if ((scan1(game,"C")))
+    {
+        game->coins = scan1(game,"C");
         return (1);
+    }
     else
         return (0);
+}
+
+int rectangular(t_complete *game)
+{
+    int a;
+    int b;
+
+    a = 0;
+    b = 0;
+    if (game->height != game->width)
+        return(0);
+    while (game->map[a])
+    {
+        if (b)
+            b = ft_strlen(game->map[a])
+    }
 }
 
 int megatroll(t_complete *game)

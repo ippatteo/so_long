@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 19:22:08 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/20 18:28:03 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/20 19:38:46 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,33 @@ void	printmap(char **c, t_complete *game)
 		write(1, "\n", 1);
 		x++;    
 	}	
+}
+
+void whereisP(t_complete *game, char C)
+{
+    int a;
+    int b;
+    int e;
+    int p;
+
+    a = 0;
+    b = 0;
+    e = 0;
+    while (game->map[a])
+    {
+        while (game->map[a][b])
+        {
+            if (game->map[a][b] == c)
+            {
+				game->P1x = a;
+				game->P1y = b;
+				return;
+			}
+            b++;
+        }
+        a++;
+    }
+    return;
 }
 
 int	mapread(int ac, char **av, t_complete	*game)
