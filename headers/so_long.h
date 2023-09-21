@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 12:08:37 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/20 18:27:57 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/21 15:17:36 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,25 @@ typedef struct t_start
 	char	**map;
 }	t_complete;
 
-int pathfind(t_complete *game)
-
+int 	startgame(int ac, char **av, t_complete game);
+int 	pathfind(t_complete *game);
+int 	scan (t_complete *game);
+int 	controlpath(t_complete *game);
+void 	changeit(char c);
+int		sq(t_complete *game, int x, int y, char a);
+void	right(t_complete *game);
+void 	left(t_complete *game);
+void 	down(t_complete *game);
+void 	up(t_complete *game);
+void 	whereisP(t_complete *game, char C);
+int		getheight(char *c);
+void	printmap(char **c, t_complete *game);
+int		mapnroll(int ac, char **av, t_complete	*game);
+int 	youmove(t_complete *game, int x, int y, int mx, int my);
+int 	scanintrude(t_complete *game);
+int 	scan1(t_complete *game, char c);
+int 	scanwall(t_complete *game, char c);
+int 	scanC(t_complete *game);
+int 	rectangular(t_complete *game);
+int 	megatroll(t_complete *game);
 #endif

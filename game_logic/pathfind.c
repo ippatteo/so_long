@@ -6,9 +6,11 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 12:47:16 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/20 19:38:49 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/21 11:37:41 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../headers/so_long.h"
 
 int sq(t_complete *game, int x, int y, char a)
 {
