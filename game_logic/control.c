@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 15:00:30 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/21 21:03:51 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/22 00:33:18 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,16 +112,16 @@ int rectangular(t_complete *game)
 
 int megatroll(t_complete *game)
 {
-    /*if (scanwall(game, '1') != ((game->height + game->width - 2) * 2))
-        return (1);
+    if (scanwall(game, '1') != ((game->height + game->width - 2) * 2))
+        return (0);
     if (!scanC(game))
-        return (1);
+        return (0);
     if ((scan1(game, 'P') * scan1(game, 'E')) != 1)
-        return (1);
+        return (0);
     if (!scanintrude(game))
-        return(1);
+        return(0);
     if (!rectangular(game))
-        return (1);*/
+        return (0);
     if (!pathfind(game))
         return (0);
     return(1);

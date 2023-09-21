@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 12:47:16 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/21 21:28:08 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/22 00:32:02 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,22 +38,15 @@ int controlpath(t_complete *game)
     int b;
 
     a = 0;
-
      while (game->map[a])
     {
         b = 0;
         while (game->map[a][b])
         {
-            if (game->map[a][b] == '0' || game->map[a][b] == 'E' || game->map[a][b] == 'C')
+            if ((game->map[a][b] == '0' || game->map[a][b] == 'E' || game->map[a][b] == 'C') && (sq(game, a, b, 'P') || sq(game, a, b, '2') || sq(game, a, b, 'U') || sq(game, a, b, 'S')))
             {
-                if (sq(game, a, b, 'P') || sq(game, a, b, '2') || sq(game, a, b, 'U') || sq(game, a, b, 'S'))
-                {
-                    if (game->map[a][b] == '0' || game->map[a][b] == 'C' || game->map[a][b] == 'E')
-                    {
-                        changeit(game, a, b);
-                        return (controlpath(game));
-                    } 
-                }
+                changeit(game, a, b);
+                return (controlpath(game));
             }
             b++;
         }
