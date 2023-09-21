@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 12:47:16 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/21 11:37:41 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/21 21:28:08 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,14 @@ int sq(t_complete *game, int x, int y, char a)
         return (0);
 }
 
-void changeit(char c)
+void changeit(t_complete *game, int a, int b)
 {
-    if (c == "0")
-        c = "2";
-    if (c == "E")
-        c = "U";
-    if (c == "C")
-        c = "S";
-    if (c == "2")
-        c = "0";
-    if (c == "U")
-        c = "E";
-    if (c == "S")
-        c = "C";
+    if (game->map[a][b] == '0')
+        game->map[a][b] = '2';
+    if (game->map[a][b] == 'E')
+        game->map[a][b] = 'U';
+    if (game->map[a][b] == 'C')
+        game->map[a][b] = 'S';
     return;
 }
 
@@ -44,21 +38,24 @@ int controlpath(t_complete *game)
     int b;
 
     a = 0;
-    b = 0;
-    while (game->map[a])
+
+     while (game->map[a])
     {
+        b = 0;
         while (game->map[a][b])
         {
-            if (game->map[a][b] == "1" || game->map[a][b] "P")
-                b++;
-            if (sq(game, a, b, "P") || sq(game, a, b, "2") || sq(game, a, b, "U") || sq(game, a, b, "S"))
+            if (game->map[a][b] == '0' || game->map[a][b] == 'E' || game->map[a][b] == 'C')
             {
-                if (game->map[a][b] == "0" || game->map[a][b] == "C" || game->map[a][b] == "E")
+                if (sq(game, a, b, 'P') || sq(game, a, b, '2') || sq(game, a, b, 'U') || sq(game, a, b, 'S'))
                 {
-                    changeit(game->map[a][b]);
-                    return (controlpath(game));
+                    if (game->map[a][b] == '0' || game->map[a][b] == 'C' || game->map[a][b] == 'E')
+                    {
+                        changeit(game, a, b);
+                        return (controlpath(game));
+                    } 
                 }
             }
+            b++;
         }
         a++;
     }
@@ -74,9 +71,10 @@ int scan (t_complete *game)
     b = 0;
     while (game->map[a])
     {
+        b = 0;
         while (game->map[a][b])
         {
-            if (game->map[a][b] == "C" || game->map[a][b] == "E")
+            if (game->map[a][b] == 'C' || game->map[a][b] == 'E')
                 return (0);
             b++;
         }
@@ -93,14 +91,23 @@ int pathfind(t_complete *game)
     a = 0;
     b = 0;
     controlpath(game);
+    //ft_printf("arrivati al core");
     if (scan(game))
     {
         while (game->map[a])
         {
+            b = 0;
             while (game->map[a][b])
             {
-                if (game->map[a][b] == "2" || game->map[a][b] == "S" || game->map[a][b] == "U")
-                    changeit(game->map[a][b]);
+                if (game->map[a][b] == '2' || game->map[a][b] == 'S' || game->map[a][b] == 'U')
+                {
+                    if (game->map[a][b] == '2')
+        game->map[a][b] = '0';
+    if (game->map[a][b] == 'U')
+        game->map[a][b] = 'E';
+    if (game->map[a][b] == 'S')
+        game->map[a][b] = 'C';
+                }
                 b++;
             }
             a++;

@@ -1,4 +1,4 @@
-/*
+make/*
 ** mlx.h for MinilibX in 
 ** 
 ** Made by Charlie Root

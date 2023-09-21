@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 12:08:37 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/21 15:17:36 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/21 19:47:57 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ typedef struct t_start
 	char	**map;
 }	t_complete;
 
-int 	startgame(int ac, char **av, t_complete game);
 int 	pathfind(t_complete *game);
+int 	startgame(int ac, char **av, t_complete *game);
+void 	changeit(t_complete *game, int a, int b);
 int 	scan (t_complete *game);
 int 	controlpath(t_complete *game);
-void 	changeit(char c);
 int		sq(t_complete *game, int x, int y, char a);
 void	right(t_complete *game);
 void 	left(t_complete *game);

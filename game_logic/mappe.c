@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 19:22:08 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/21 15:15:10 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/21 17:34:02 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	printmap(char **c, t_complete *game)
 	}	
 }
 
-void whereisP(t_complete *game, char C)
+void whereisP(t_complete *game, char c)
 {
     int a;
     int b;
@@ -77,18 +77,18 @@ int	mapnroll(int ac, char **av, t_complete	*game)
 		line = get_next_file(fd1);
 		game->height = getheight(line);
 		game->map = ft_split(line, '\n');
-		game->width = ft_strlen(game->map[0]);
+		game->width = (int)ft_strlen(game->map[0]);
 		free (line);
 		if (!game->map)
 			return (0);
-		whereisP(game, "P");
+		whereisP(game, 'P');
 	}
 	else
 		return (0);
 	return (1);
 }
 
-int startgame(int ac, char **av, t_complete game)
+int startgame(int ac, char **av, t_complete *game)
 {
 	if(!mapnroll(ac, av, game))
 	{
@@ -97,8 +97,7 @@ int startgame(int ac, char **av, t_complete game)
 	}
 	if(!megatroll(game))
 	{
-		ft_printf("error: ahi ahi ahi signora Longari, lei non ha prestato 
-		attenzione su come si fa una mappa\n");
+		ft_printf("error: ahi ahi ahi signora Longari, lei non ha prestato attenzione su come si fa una mappa\n");
 		return(0);
 	}
 	return (1);
