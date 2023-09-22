@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 10:49:43 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/22 15:07:31 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/22 17:59:44 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,10 @@ int	main(int ac, char **av)
 	if (startgame(ac, av, &game))
 	{
 		printmap(game.map, &game);
-		ft_printf("coins %d\n", game.coins);
-		ft_printf("posx %d\n", game.p1x);
-		ft_printf("posy %d\n", game.p1y);
+		
+		game.mlx = mlx_init();
+		game.mlx_win = mlx_new_window(game.mlx, (game.width * 40), (game.width) * 40, "solong");
+		mlx_loop(game.mlx);
 	}
 	else
 		return (0);

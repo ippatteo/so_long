@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 12:08:37 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/22 13:55:41 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/22 18:13:16 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <errno.h>
 # include <string.h>
 # include "../libft/libft.h"
-# include "../minilibx/mlx.h"
+# include "../mlx_linux/mlx.h"
 # include "../printf/ft_printf.h"
 
 typedef struct t_start
@@ -31,6 +31,8 @@ typedef struct t_start
 	int		height;
 	int		coins;
 	char	**map;
+	void	*mlx;
+	void	*mlx_win;
 }	t_complete;
 
 int		pathfind(t_complete *game);

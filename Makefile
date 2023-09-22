@@ -7,12 +7,12 @@ CFLAGS := -Wall -Wextra -Werror -Iheaders/
 SOURCE := game_logic/*.c
 LIBFT := libft/*.c
 PRINTF := printf/*.c
-LIBRARY := -Lminilibx -lmlx -framework OpenGL -framework AppKit
-MINILIBX := minilibx/
+LIBRARY := -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
+MINILIBX := mlx_linux/
 
 all:
-	make -C $(MINILIBX)
-	$(CC) $(CFLAGS) $(SOURCE) $(LIBFT) $(PRINTF) -o $(NAME)
+# make -C $(MINILIBX)
+	$(CC) $(CFLAGS) $(SOURCE) $(LIBFT) $(PRINTF) $(LIBRARY) -o $(NAME)
 
 clean:
 
