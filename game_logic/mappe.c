@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 19:22:08 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/21 17:34:02 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/22 14:33:56 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,40 +30,41 @@ int	getheight(char *c)
 
 void	printmap(char **c, t_complete *game)
 {
-	int x;
-	
+	int	x;
+
 	x = 0;
 	ft_printf("hai fatto %d passi\n", game->steps);
 	while (c[x])
 	{
 		ft_putstr(c[x]);
 		write(1, "\n", 1);
-		x++;    
-	}	
+		x++ ;
+	}
 }
 
-void whereisP(t_complete *game, char c)
+void	whereisp(t_complete *game, char c)
 {
-    int a;
-    int b;
+	int	a;
+	int	b;
 
-    a = 0;
-    b = 0;
-    while (game->map[a])
-    {
-        while (game->map[a][b])
-        {
-            if (game->map[a][b] == c)
-            {
-				game->P1x = a;
-				game->P1y = b;
-				return;
+	a = 0;
+	b = 0;
+	while (game->map[a])
+	{
+		b = 0;
+		while (game->map[a][b])
+		{
+			if (game->map[a][b] == c)
+			{
+				game->p1x = a;
+				game->p1y = b;
+				return ;
 			}
-            b++;
-        }
-        a++;
-    }
-    return;
+			b++;
+		}
+		a++;
+	}
+	return ;
 }
 
 int	mapnroll(int ac, char **av, t_complete	*game)
@@ -81,25 +82,24 @@ int	mapnroll(int ac, char **av, t_complete	*game)
 		free (line);
 		if (!game->map)
 			return (0);
-		whereisP(game, 'P');
+		whereisp(game, 'P');
 	}
 	else
 		return (0);
 	return (1);
 }
 
-int startgame(int ac, char **av, t_complete *game)
+int	startgame(int ac, char **av, t_complete *game)
 {
-	if(!mapnroll(ac, av, game))
+	if (!mapnroll(ac, av, game))
 	{
 		ft_printf("error: mappa non caricata\n");
-		return(0);
+		return (0);
 	}
-	if(!megatroll(game))
+	if (!megatroll(game))
 	{
-		ft_printf("error: ahi ahi ahi signora Longari, lei non ha prestato attenzione su come si fa una mappa\n");
-		return(0);
+		ft_printf("error: mappa sbagliata\n");
+		return (0);
 	}
 	return (1);
-		
 }

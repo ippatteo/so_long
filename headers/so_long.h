@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 12:08:37 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/21 19:47:57 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/22 13:55:41 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@
 
 typedef struct t_start
 {
-	int		P1y;
-	int		P1x;
+	int		p1y;
+	int		p1x;
 	int		steps;
 	int		width;
 	int		height;
@@ -33,25 +33,25 @@ typedef struct t_start
 	char	**map;
 }	t_complete;
 
-int 	pathfind(t_complete *game);
-int 	startgame(int ac, char **av, t_complete *game);
-void 	changeit(t_complete *game, int a, int b);
-int 	scan (t_complete *game);
-int 	controlpath(t_complete *game);
+int		pathfind(t_complete *game);
+int		startgame(int ac, char **av, t_complete *game);
+void	changeit(t_complete *game, int a, int b);
+int		scan(t_complete *game);
+int		controlpath(t_complete *game);
 int		sq(t_complete *game, int x, int y, char a);
 void	right(t_complete *game);
-void 	left(t_complete *game);
-void 	down(t_complete *game);
-void 	up(t_complete *game);
-void 	whereisP(t_complete *game, char C);
+void	left(t_complete *game);
+void	down(t_complete *game);
+void	up(t_complete *game);
+void	whereisp(t_complete *game, char C);
 int		getheight(char *c);
 void	printmap(char **c, t_complete *game);
 int		mapnroll(int ac, char **av, t_complete	*game);
-int 	youmove(t_complete *game, int x, int y, int mx, int my);
-int 	scanintrude(t_complete *game);
-int 	scan1(t_complete *game, char c);
-int 	scanwall(t_complete *game, char c);
-int 	scanC(t_complete *game);
-int 	rectangular(t_complete *game);
-int 	megatroll(t_complete *game);
+int		youmove(t_complete *game, int mx, int my);
+int		scanintrude(t_complete *game);
+int		scan1(t_complete *game, char c);
+int		scanwall(t_complete *game, char c);
+int		scanc(t_complete *game);
+int		rectangular(t_complete *game);
+int		megatroll(t_complete *game);
 #endif

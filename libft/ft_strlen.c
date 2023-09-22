@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 15:33:09 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/04/17 12:20:54 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/22 14:39:28 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@ size_t	ft_strlen(const char *s)
 
 	i = 0;
 	while (s[i] != '\0')
-	i++;
+		i++;
 	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/20 15:07:07 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/14 17:51:06 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/22 12:34:48 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	rsrch(char const *s1, char const *s2)
 			if (s1[i] == s2[t])
 			{
 				t++;
-				break;
+				break ;
 			}
 		}
 		if (s2[t] == '\0')
