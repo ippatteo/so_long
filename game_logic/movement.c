@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 12:35:17 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/22 14:28:26 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/23 02:35:55 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,16 @@ void	up(t_complete *game)
 	x = youmove(game, game->p1x - 1, game->p1x);
 	if (x)
 	{
-		printmap(game->map, game);
+		game->steps++;
 		game->p1x--; 
+		printmap(game->map, game);
+		ft_printf("hai fatto %d passi\n", game->steps);
+		ft_printf("ti mancano %d coins\n", game->coins);
 	}
 	if (x == 2)
 	{
-		//exit_point(evviva);
+		ft_printf("hai vinto, daje\n");
+		exit_point(game);
 		return ;
 	}
 	return ;
@@ -62,12 +66,16 @@ void	down(t_complete *game)
 	if (x)
 	{
 		game->steps++;
+		game->p1x++;
 		printmap(game->map, game);
-		game->p1x++; 
+		ft_printf("hai fatto %d passi\n", game->steps);
+		ft_printf("ti mancano %d coins\n", game->coins);
+		 
 	}
 	if (x == 2)
 	{
-		//exit_point(evviva);
+		ft_printf("hai vinto, daje\n");
+		exit_point(game);
 		return ;
 	}
 	return ;
@@ -81,12 +89,15 @@ void	left(t_complete *game)
 	if (x)
 	{
 		game->steps++;
-		printmap(game->map, game);
 		game->p1x--; 
+		printmap(game->map, game);
+		ft_printf("hai fatto %d passi\n", game->steps);
+		ft_printf("ti mancano %d coins\n", game->coins);
 	}
 	if (x == 2)
 	{
-		//exit_point(evviva);
+		ft_printf("hai vinto, daje\n");
+		exit_point(game);
 		return ;
 	}
 	return ;
@@ -100,12 +111,16 @@ void	right(t_complete *game)
 	if (x)
 	{
 		game->steps++;
+		game->p1x++;
 		printmap(game->map, game);
-		game->p1x++; 
+		ft_printf("hai fatto %d passi\n", game->steps);
+		ft_printf("ti mancano %d coins\n", game->coins);
+		 
 	}
 	if (x == 2)
 	{
-		//exit_point(evviva);
+		ft_printf("hai vinto, daje\n");
+		exit_point(game);
 		return ;
 	}
 	return ;

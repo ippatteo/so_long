@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 12:08:37 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/22 18:13:16 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/23 02:37:43 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,17 @@ typedef struct t_start
 	char	**map;
 	void	*mlx;
 	void	*mlx_win;
+	void	*floor;
+	void	*barrier;
+	void	*player;
+	void	*exit;
+	void	*collectable;
 }	t_complete;
 
+int		exit_point(t_complete *game);
+void	adding_in_graphics(t_complete *game);
+void	place_images_in_game(t_complete *game);
+void 	iffone(t_complete *game, int a, int b);
 int		pathfind(t_complete *game);
 int		startgame(int ac, char **av, t_complete *game);
 void	changeit(t_complete *game, int a, int b);
