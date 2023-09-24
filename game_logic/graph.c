@@ -6,29 +6,29 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 01:12:59 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/23 02:39:42 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/24 15:44:08 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long.h"
 
-void iffone(t_complete *game, int a, int b)
+void	iffone(t_complete *game, int a, int b)
 {
-    if (game->map[a][b] == '1')
+	if (game->map[a][b] == '1')
 		mlx_put_image_to_window(game->mlx,
-		game->mlx_win, game->barrier, b * 40, a * 40);
+			game->mlx_win, game->barrier, b * 50, a * 50);
 	if (game->map[a][b] == 'C')
 		mlx_put_image_to_window(game->mlx,
-		game->mlx_win, game->collectable, b * 40, a * 40);
+			game->mlx_win, game->collectable, b * 50, a * 50);
 	if (game->map[a][b] == 'P')
 		mlx_put_image_to_window(game->mlx,
-		game->mlx_win, game->player, b * 40, a * 40);
+			game->mlx_win, game->player, b * 50, a * 50);
 	if (game->map[a][b] == 'E')
 		mlx_put_image_to_window(game->mlx,
-		game->mlx_win, game->exit, b * 40, a * 40);
+			game->mlx_win, game->exit, b * 50, a * 50);
 	if (game->map[a][b] == '0')
-        mlx_put_image_to_window(game->mlx, 
-        game->mlx_win, game->floor, b * 40, a * 40);
+		mlx_put_image_to_window(game->mlx, 
+			game->mlx_win, game->floor, b * 50, a * 50);
 }
 
 void	place_images_in_game(t_complete *game)
@@ -64,6 +64,8 @@ void	adding_in_graphics(t_complete *game)
 		}
 		a++;
 	}
+	ft_printf("hai fatto %d passi\n", game->steps);
+	ft_printf("ti mancano %d coins\n", game->coins);
 }
 
 int	exit_point(t_complete *game)

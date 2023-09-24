@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 10:49:43 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/22 17:59:44 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/24 15:37:13 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,17 @@ int	megatroll(t_complete *game)
 int	main(int ac, char **av)
 {
 	t_complete	game;
-
+	
 	game.steps = 0;
 	if (startgame(ac, av, &game))
 	{
-		printmap(game.map, &game);
-		
 		game.mlx = mlx_init();
-		game.mlx_win = mlx_new_window(game.mlx, (game.width * 40), (game.width) * 40, "solong");
+		game.mlx_win = mlx_new_window(game.mlx, (game.width * 50), 
+				(game.height) * 50, "solong");
+		place_images_in_game(&game);
+		adding_in_graphics(&game);	
+		mlx_key_hook(game.mlx_win, controls_working, &game);
+		mlx_hook(game.mlx_win, 17, 0, (void *)exit_point, 0);
 		mlx_loop(game.mlx);
 	}
 	else
