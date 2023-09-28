@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 12:47:16 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/28 20:18:52 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/28 19:17:08 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,6 @@ void	changeit(t_complete *game, int a, int b)
 		game->map[a][b] = 'S';
 	else if (game->map[a][b] == 'S')
 		game->map[a][b] = 'C';
-	if (game->map[a][b] == 'N')
-		game->map[a][b] = 'M';
-	else if (game->map[a][b] == 'M')
-		game->map[a][b] = 'N';
 	return ;
 }
 
@@ -54,8 +50,8 @@ int	controlpath(t_complete *game)
 		while (game->map[a][b])
 		{
 			if ((game->map[a][b] == '0' || game->map[a][b] == 'E' ||
-			game->map[a][b] == 'C' || game->map[a][b] == 'N') && (sq(game, a, b, 'P') || 
-			sq(game, a, b, '2') || sq(game, a, b, 'U') || sq(game, a, b, 'S') || sq(game, a, b, 'M')))
+			game->map[a][b] == 'C') && (sq(game, a, b, 'P') || 
+			sq(game, a, b, '2') || sq(game, a, b, 'U') || sq(game, a, b, 'S')))
 			{
 				changeit(game, a, b);
 				return (controlpath(game));
@@ -79,8 +75,7 @@ int	scan(t_complete *game)
 		b = 0;
 		while (game->map[a][b])
 		{
-			if (game->map[a][b] == 'C' || game->map[a][b] == 'E' || 
-				game->map[a][b] == '0' || game->map[a][b] == 'N')
+			if (game->map[a][b] == 'C' || game->map[a][b] == 'E' || game->map[a][b] == '0')
 				return (0);
 			b++;
 		}

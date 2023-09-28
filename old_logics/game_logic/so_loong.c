@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 10:49:43 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/28 17:35:36 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/24 15:37:13 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,6 @@ int	megatroll(t_complete *game)
 	return (1);
 }
 
-int otherexit(void)
-{
-	exit(0);
-}
-
 int	main(int ac, char **av)
 {
 	t_complete	game;
@@ -42,23 +37,13 @@ int	main(int ac, char **av)
 	if (startgame(ac, av, &game))
 	{
 		game.mlx = mlx_init();
+		game.mlx_win = mlx_new_window(game.mlx, (game.width * 50), 
+				(game.height) * 50, "solong");
 		place_images_in_game(&game);
-		/*if (game.width < 18 || game.height < 18)
-		{
-			game.mlx_win = mlx_new_window(game.mlx, (game.width * 50), 
-					(game.height) * 50, "solong");
-			adding_in_graphics(&game);
-		}
-		else*/
-		//{
-			game.mlx_win = mlx_new_window(game.mlx, (10 * 50), 
-					(10 * 50), "solong");
-			adding_in_graphics_aroundp(&game);
-		//}	
-		mlx_hook(game.mlx_win, 17, 0, otherexit, NULL);
+		adding_in_graphics(&game);	
 		mlx_key_hook(game.mlx_win, controls_working, &game);
+		mlx_hook(game.mlx_win, 17, 0, (void *)exit_point, 0);
 		mlx_loop(game.mlx);
-
 	}
 	else
 		return (0);

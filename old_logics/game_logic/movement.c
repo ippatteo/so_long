@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 12:35:17 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/28 19:40:34 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/24 16:03:05 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	youmove(t_complete *game, int mx, int my)
 		game->coins--;
 		return (1);
 	}
-	if (game->map[mx][my] == 'E' && game->coins == 0)
+	if (game->map[mx][my] == 'P' && game->coins == 0)
 	{
 		game->map[mx][my] = game->map[game->p1x][game->p1y];
 		game->map[game->p1x][game->p1y] = '0';
@@ -44,9 +44,8 @@ void	up(t_complete *game)
 	if (x)
 	{
 		game->steps++;
-		game->p1x--;
-		adding_in_graphics_aroundp(game);
-
+		game->p1x--; 
+		adding_in_graphics(game);
 	}
 	if (x == 2)
 	{
@@ -66,7 +65,7 @@ void	down(t_complete *game)
 	{
 		game->steps++;
 		game->p1x++;
-		adding_in_graphics_aroundp(game);
+		adding_in_graphics(game);
 	}
 	if (x == 2)
 	{
@@ -85,8 +84,9 @@ void	left(t_complete *game)
 	if (x)
 	{
 		game->steps++;
-		game->p1y--;
-			adding_in_graphics_aroundp(game);
+		game->p1y--; 
+		adding_in_graphics(game);
+	}
 	if (x == 2)
 	{
 		ft_printf("hai vinto, daje\n");
@@ -94,9 +94,7 @@ void	left(t_complete *game)
 		return ;
 	}
 	return ;
-    }  
-
-} 
+}
 
 void	right(t_complete *game)
 {
@@ -107,7 +105,7 @@ void	right(t_complete *game)
 	{
 		game->steps++;
 		game->p1y++;
-			adding_in_graphics_aroundp(game);
+		adding_in_graphics(game);
 	}
 	if (x == 2)
 	{

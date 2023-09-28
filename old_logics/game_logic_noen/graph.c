@@ -6,33 +6,37 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 01:12:59 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/27 23:57:06 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/28 18:53:50 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long.h"
 
-void	iffone(t_complete *game, int a, int b, int c, int d)
+void	ifcenter(t_complete *game, int a, int b)
 {
-	if (game->p1x < 10)
-		c = 10;
-	if (game->p1y < 10)
-		d = 10;
+	if (a < 0)
+		a = 0;
+	if (a > (game->height - 1))
+		a = game->height - 1;
+	if (b > (game->width - 1))
+		b = game->width - 1;
+	if (b < 0)
+		b = 0;
 	if (game->map[a][b] == '1')
 		mlx_put_image_to_window(game->mlx,
-			game->mlx_win, game->barrier, d * 50, c * 50);
+			game->mlx_win, game->barrier, game->d * 50, game->c * 50);
 	if (game->map[a][b] == 'C')
 		mlx_put_image_to_window(game->mlx,
-			game->mlx_win, game->collectable, d * 50, c * 50);
+			game->mlx_win, game->collectable, game->d * 50, game->c * 50);
 	if (game->map[a][b] == 'P')
 		mlx_put_image_to_window(game->mlx,
-			game->mlx_win, game->player, d * 50, c * 50);
+			game->mlx_win, game->player, game->d * 50, game->c * 50);
 	if (game->map[a][b] == 'E')
 		mlx_put_image_to_window(game->mlx,
-			game->mlx_win, game->exit, d * 50, c * 50);
+			game->mlx_win, game->exit, game->d * 50, game->c * 50);
 	if (game->map[a][b] == '0')
 		mlx_put_image_to_window(game->mlx, 
-			game->mlx_win, game->floor, d * 50, c * 50);
+			game->mlx_win, game->floor, game->d * 50, game->c * 50);
 }
 
 void	place_images_in_game(t_complete *game)
@@ -56,34 +60,30 @@ void	adding_in_graphics_aroundp(t_complete *game)
 {
 	int	a;
 	int	b;
-	int c;
-	int	d; 
 
-	c = 0;
-	d = 0;
+	game->c = 0;
+	game->d = 0;
 	a = game->p1x - 5;
-    b = game->p1y - 5;
-    if (a < 0)
-     a = 0;
-    if b
-	while (c < 11)
+	while (game->c < 11)
 	{
         b = game->p1y - 5;
-		d = 0;
-		while (d < 11)
+		game->d = 0;
+		while (game->d < 11)
 		{
-			iffone(game, a, b++, c, d++);
+			ifcenter(game, a, b++);
+			game->d++;
 		}
-		c++;
+		game->c++;
         a++;
 	}
+	ft_printf("hai fatto %d passi\n", game->steps);
+	ft_printf("ti mancano %d coins\n", game->coins);
 }
 
-/*void	adding_in_graphics(t_complete *game)
+void	adding_in_graphics(t_complete *game)
 {
 	int	a;
 	int	b;
-    int 
 
 	a = 0;
 	while (game->map[a])
@@ -91,25 +91,30 @@ void	adding_in_graphics_aroundp(t_complete *game)
 		b = 0;
 		while (game->map[a][b])
 		{
-			iffone(game, a, b, c, d);
+			iffone(game, a, b);
 			b++;
 		}
 		a++;
 	}
 	ft_printf("hai fatto %d passi\n", game->steps);
 	ft_printf("ti mancano %d coins\n", game->coins);
-}*/
+}
 
-int	exit_point(t_complete *game)
+void	iffone(t_complete *game, int a, int b)
 {
-	int	a;
-
-	a = 0;
-	if (game->mlx_win)
-		mlx_destroy_window(game->mlx, game->mlx_win);
-	free(game->mlx);
-	while (a < game->height - 1)
-		free(game->map[a++]);
-	free(game->map);
-	exit(0);
+	if (game->map[a][b] == '1')
+		mlx_put_image_to_window(game->mlx,
+			game->mlx_win, game->barrier, b * 50, a * 50);
+	if (game->map[a][b] == 'C')
+		mlx_put_image_to_window(game->mlx,
+			game->mlx_win, game->collectable, b * 50, a * 50);
+	if (game->map[a][b] == 'P')
+		mlx_put_image_to_window(game->mlx,
+			game->mlx_win, game->player, b * 50, a * 50);
+	if (game->map[a][b] == 'E')
+		mlx_put_image_to_window(game->mlx,
+			game->mlx_win, game->exit, b * 50, a * 50);
+	if (game->map[a][b] == '0')
+		mlx_put_image_to_window(game->mlx, 
+			game->mlx_win, game->floor, b * 50, a * 50);
 }
