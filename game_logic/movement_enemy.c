@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 12:35:17 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/28 21:53:32 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/29 03:05:50 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	left(t_complete *game)
 
 } 
 
-void	right(t_complete *game)
+int	right(t_complete *game)
 {
 	int	x;
 
@@ -93,49 +93,136 @@ void	right(t_complete *game)
 	if (x)
 	{
 		game->n1y++;
+		return (1);
 	}
 	if (x == 2)
 	{
 		ft_printf("hai perso\n");
 		exit_point(game);
-		return ;
+		return (1);
 	}
-	return ;
+	return (0);
 }
 
-
-void	adding_in_graphics_aroundn(t_complete *game)
+void intellenemy(t_complete *game, int x)
 {
-	int	a;
-	int	b;
-	int e;
-	
-	game->c = 0;
-	game->d = 0;
-	a = game->p1x - 10;
-	while (game->c < 21)
-	{
-        b = game->p1y - 10;
-		game->d = 0;
-		while (game->d < 21)
+	if((game->steps % 3 ) && game->f = 0 ||(game->steps % 3 ) &&  game->f = 1)
 		{
-			if (game->map[a][b] == 'N');
-				game->nx[e][0] = a;
-				game->ny[e++][1] = b;
+			if (game->p1y > game->n[x][1])
+				orizontalright(game, x);
+			else if (game->p1y > game->n[x][1])
+				orizontaleft(game, x);
 		}
-		game->c++;
-        a++;
+}
+int orizontaleft(t_complete *game, x)
+{
+	int z;
+	
+	z = 0;
+	
+	else if (left(game))
+	{
+		checkprox(game, x)
+		return (1);
 	}
+	if (right(game))
+	{
+		checkprox(game, x)
+		return (1)
+	}
+	else if(game->p1x < game->n[x][0])
+	{
+		z = orizverticalup(game, x);
+	}
+	else
+		z = orizverticaldown(game, x);
+	return (z)
 }
 
-void takepositionenemy(t_complete *game)
+int orizontalright(t_complete *game, x)
+{
+	int z;
+	
+	z = 0;
+	if (right(game))
+	{
+		checkprox(game, x)
+		return (1)
+	}
+	else if (left(game))
+	{
+		checkprox(game, x)
+		return (1);
+	}
+	else if(game->p1x < game->n[x][0])
+	{
+		z = orizverticalup(game, x);
+	}
+	else
+		z = orizverticaldown(game, x);
+	return (z)
+}
+
+void checkprox(t_complete *game, int x)
+{
+	game->f++	
+	if (printproxymity(game, x))
+		printporcoddue
+}
+
+int orizverticalup(t_complete *game, int x)
+{	if(up(game))
+	{
+		checkprox(game, x)
+			return (1)
+	}
+	else if	(down(game))
+	{
+		checkprox(game, x)
+		return (1)
+	}
+	else 
+		return (0);
+}
+
+int orizverticaldown(t_complete *game, int x)
+{	if(down(game))
+	{
+		checkprox(game, x)
+			return (1)
+	}
+	else if	(up(game))
+	{
+		checkprox(game, x)
+		return (1)
+	}
+	else 
+		return (0);
+}
+
+void	activateenemy(t_complete *game)
+{
+	int	a;
+	
+	a = 0;
+	while (a < game->en)
+	{
+		if(proxymity(game, a))
+			intellemy(game, a++);
+		else
+			a++
+	}
+	
+}
+
+int takepositionenemy(t_complete *game)
 {
 	int	a;
 	int	b;
 	
-	game->n = malloc(sizeof (int *) * (scan(game, 'N') * 2));
+	game->n = malloc(sizeof (int *) * (scan1(game, 'N') * 2));
 		if (!game->n)
-			return ;
+			return (0);
 	a = 0;
 	while (game->map[a])
 	{
@@ -151,6 +238,71 @@ void takepositionenemy(t_complete *game)
 		}
 		a++;
 	}
-	return (e);
+	return (game->en);
 }
 
+
+
+int printproxymity(t_complete *game, int x)
+{
+	int	a;
+	int	b;
+
+	game->c = 0;
+	game->d = 0;
+	a = game->n[x][0] - 5;
+	while (game->c < 11)
+	{
+        b = game->n[x][1] - 5;
+		game->d = 0;
+		while (game->d < 11)
+		{
+			if(foundp(game, a, b))
+				return (1)
+			game->d++;
+		}
+		game->c++;
+        a++;
+	}
+	return(0);
+}
+
+int proxymity(t_complete *game, int x)
+{
+	int	a;
+	int	b;
+
+	game->c = 0;
+	game->d = 0;
+	a = game->n[x][0] - 10;
+	while (game->c < 21)
+	{
+        b = game->n[x][1] - 10;
+		game->d = 0;
+		while (game->d < 21)
+		{
+			if(foundp(game, a, b))
+				return (1)
+			game->d++;
+		}
+		game->c++;
+        a++;
+	}
+	return(0);
+}
+
+int foundp(t_complete *game, int a, int b)
+{
+	if (a < 0)
+		a = 0;
+	if (a > (game->height - 1))
+		a = game->height - 1;
+	if (b > (game->width - 1))
+		b = game->width - 1;
+	if (b < 0)
+		b = 0;
+	if (game->map[a][b] == 'P')
+		return (1);
+	else
+		return(0);
+}

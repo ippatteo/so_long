@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 12:08:37 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/28 21:51:58 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/29 01:36:52 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@
 
 typedef struct t_start
 {
+	int		f2	;
+	int		f;
 	int		en;
 	int		n1x;
 	int		n1y;
@@ -35,6 +37,7 @@ typedef struct t_start
 	int		width;
 	int		height;
 	int		coins;
+	int		**n
 	char	**map;
 	void	*mlx;
 	void	*mlx_win;

@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 01:12:59 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/28 18:53:50 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/29 00:11:57 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,11 @@ void	ifcenter(t_complete *game, int a, int b)
 		b = game->width - 1;
 	if (b < 0)
 		b = 0;
+	ifcenter2(game, a, b);
+}
+
+void	ifcenter2(t_complete *game, int a, int b)
+{
 	if (game->map[a][b] == '1')
 		mlx_put_image_to_window(game->mlx,
 			game->mlx_win, game->barrier, game->d * 50, game->c * 50);

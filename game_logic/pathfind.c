@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/16 12:47:16 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/28 20:18:52 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/29 01:02:22 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int	scan(t_complete *game)
 		while (game->map[a][b])
 		{
 			if (game->map[a][b] == 'C' || game->map[a][b] == 'E' || 
-				game->map[a][b] == '0' || game->map[a][b] == 'N')
+				game->map[a][b] == '0')
 				return (0);
 			b++;
 		}
@@ -105,7 +105,7 @@ int	pathfind(t_complete *game)
 			while (game->map[a][b])
 			{
 				if (game->map[a][b] == '2' || game->map[a][b] == 'S' ||
-				game->map[a][b] == 'U')
+				game->map[a][b] == 'U' || game->map[a][b] == 'M')
 					changeit(game, a, b);
 				b++;
 			}
