@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 12:35:17 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/29 05:25:25 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/29 09:37:48 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ void	up(t_complete *game)
 		game->steps++;
 		game->p1x--;
 		adding_in_graphics_aroundp(game);
-
 	}
 	if (x == 2)
 	{
@@ -86,17 +85,16 @@ void	left(t_complete *game)
 	{
 		game->steps++;
 		game->p1y--;
-			adding_in_graphics_aroundp(game);
-	if (x == 2)
-	{
-		ft_printf("hai vinto, daje\n");
-		exit_point(game);
+		adding_in_graphics_aroundp(game);
+		if (x == 2)
+		{
+			ft_printf("hai vinto, daje\n");
+			exit_point(game);
+			return ;
+		}
 		return ;
 	}
-	return ;
-    }  
-
-} 
+}
 
 void	right(t_complete *game)
 {
@@ -107,7 +105,7 @@ void	right(t_complete *game)
 	{
 		game->steps++;
 		game->p1y++;
-			adding_in_graphics_aroundp(game);
+		dding_in_graphics_aroundp(game);
 	}
 	if (x == 2)
 	{

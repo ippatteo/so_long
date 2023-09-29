@@ -6,13 +6,13 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 13:23:32 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/29 05:42:33 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/29 09:34:47 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long.h"
 
-int	controls_working(int command,t_complete *game)
+int	controls_working(int command, t_complete *game)
 {
 	if (command == 65307)
 		exit_point(game);
@@ -26,6 +26,7 @@ int	controls_working(int command,t_complete *game)
 		right(game);
 	return (1);
 }
+
 int	exit_point(t_complete *game)
 {
 	int	a;
@@ -37,7 +38,7 @@ int	exit_point(t_complete *game)
 	while (a < game->height - 1)
 		free(game->map[a++]);
 	free(game->map);
-	if(game->en)
-		free(game->en);
+	if (game->n)
+		free(game->n);
 	exit(0);
 }

@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 12:08:37 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/29 05:07:23 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/29 09:31:26 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct t_start
 	int		width;
 	int		height;
 	int		coins;
-	int		**n
+	int		**n;
 	char	**map;
 	void	*mlx;
 	void	*mlx_win;
@@ -48,9 +48,34 @@ typedef struct t_start
 	void	*collectable;
 }	t_complete;
 
+int		foundp(t_complete *game, int a, int b);
+int		proxymity(t_complete *game, int x);
+int		printproxymity(t_complete *game, int x);
+int		takepositionenemy(t_complete *game);
+void	activateenemy(t_complete *game);
+int		orizverticaldown(t_complete *game, int x);
+int		orizverticalup(t_complete *game, int x);
+void	flagf(t_complete *game);
+void	checkprox(t_complete *game, int x);
+int		orizontalright(t_complete *game, int x);
+int		orizontaleft(t_complete *game, int x);
+int		verticalup(t_complete *game, int x);
+int		verticalorizontaleft(t_complete *game, int x);
+int		verticalorizontalright(t_complete *game, int x);
+int		verticaldown(t_complete *game, int x);
+int		asimplechoise(t_complete *game, int x);
+int		vertical(t_complete *game, int x);
+int		orizontal(t_complete *game, int x);
+int		intellenemy(t_complete *game, int x);
+int		itright(t_complete *game, int e);
+int		itleft(t_complete *game, int e);
+int		itdown(t_complete *game, int e);
+int		itup(t_complete *game, int e);
+int		itmove(t_complete *game, int mx, int my, int e);
+void	turnoffn(t_complete *game);
 void	iffone(t_complete *game, int a, int b);
 void	adding_in_graphics_aroundp(t_complete *game);
-int		controls_working(int command,t_complete *game);
+int		controls_working(int command, t_complete *game);
 int		exit_point(t_complete *game);
 void	adding_in_graphics(t_complete *game);
 void	place_images_in_game(t_complete *game);

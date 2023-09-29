@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 01:12:59 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/29 05:40:45 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/29 09:38:45 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	place_images_in_game(t_complete *game)
 			"game_images/exit.xpm", &i, &j);
 	game->collectable = mlx_xpm_file_to_image(game->mlx,
 			"game_images/item.xpm", &i, &j);
-	game->enemy =mlx_xpm_file_to_image(game->mlx,
+	game->enemy = mlx_xpm_file_to_image(game->mlx,
 			"game_images/enemy.xpm", &i, &j);
 }
 
@@ -78,7 +78,7 @@ void	adding_in_graphics_aroundp(t_complete *game)
 	a = game->p1x - 5;
 	while (game->c < 11)
 	{
-        b = game->p1y - 5;
+		b = game->p1y - 5;
 		game->d = 0;
 		while (game->d < 11)
 		{
@@ -86,7 +86,7 @@ void	adding_in_graphics_aroundp(t_complete *game)
 			game->d++;
 		}
 		game->c++;
-        a++;
+		a++;
 	}
 	ft_printf("hai fatto %d passi\n", game->steps);
 	ft_printf("ti mancano %d coins\n", game->coins);
@@ -111,23 +111,4 @@ void	adding_in_graphics(t_complete *game)
 	}
 	ft_printf("hai fatto %d passi\n", game->steps);
 	ft_printf("ti mancano %d coins\n", game->coins);
-}
-
-void	iffone(t_complete *game, int a, int b)
-{
-	if (game->map[a][b] == '1')
-		mlx_put_image_to_window(game->mlx,
-			game->mlx_win, game->barrier, b * 50, a * 50);
-	if (game->map[a][b] == 'C')
-		mlx_put_image_to_window(game->mlx,
-			game->mlx_win, game->collectable, b * 50, a * 50);
-	if (game->map[a][b] == 'P')
-		mlx_put_image_to_window(game->mlx,
-			game->mlx_win, game->player, b * 50, a * 50);
-	if (game->map[a][b] == 'E')
-		mlx_put_image_to_window(game->mlx,
-			game->mlx_win, game->exit, b * 50, a * 50);
-	if (game->map[a][b] == '0')
-		mlx_put_image_to_window(game->mlx, 
-			game->mlx_win, game->floor, b * 50, a * 50);
 }
