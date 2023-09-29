@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 09:34:01 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/29 09:42:09 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/29 13:14:17 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ int orizontalright(t_complete *game, int x)
 	else
 		z = itleft(game, x);
 	if(z)
-		checkprox(game, x)
-	return (z)
+		checkprox(game, x);
+	return (z);
 }
 
 void checkprox(t_complete *game, int x)
@@ -44,15 +44,15 @@ void checkprox(t_complete *game, int x)
 	else
 		game->f++;
 	if (printproxymity(game, x))
-		printporcoddue;
+		adding_in_graphics_aroundp(game);
 }
 
 void flagf(t_complete *game)
 {
-	if (game->f);
+	if (game->f)
 		game->f = 0;
 	else
-		game->f++;;
+		game->f++;
 }
 
 int orizverticalup(t_complete *game, int x)
@@ -60,11 +60,11 @@ int orizverticalup(t_complete *game, int x)
 	{
 			return (1);
 	}
-	else if	(left(game, x))
+	else if	(itleft(game, x))
 	{
 		return (1);
 	}
-	else if	(right(game, x))
+	else if	(itright(game, x))
 	{
 		return (1);
 	}
@@ -81,33 +81,18 @@ int orizverticaldown(t_complete *game, int x)
 	{
 		return (1);
 	}
-	else if	(left(game, x))
+	else if	(itleft(game, x))
 	{
 		return (1);
 	}
-	else if	(right(game, x))
+	else if	(itright(game, x))
 	{
 		return (1);
 	}
-	else if	(itup(game, x));
+	else if	(itup(game, x))
 	{
 		return (1);
 	}
 	else 
 		return (0);
-}
-
-void	activateenemy(t_complete *game)
-{
-	int	a;
-	
-	a = 0;
-	while (a < game->en)
-	{
-		if(proxymity(game, a))
-			intellemy(game, a++);
-		else
-			a++;
-	}
-	
 }

@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 01:12:59 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/29 09:38:45 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/29 13:19:53 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,10 @@ void	adding_in_graphics_aroundp(t_complete *game)
 	}
 	ft_printf("hai fatto %d passi\n", game->steps);
 	ft_printf("ti mancano %d coins\n", game->coins);
+    
 }
 
-void	adding_in_graphics(t_complete *game)
+/*void	adding_in_graphics(t_complete *game)
 {
 	int	a;
 	int	b;
@@ -111,4 +112,4 @@ void	adding_in_graphics(t_complete *game)
 	}
 	ft_printf("hai fatto %d passi\n", game->steps);
 	ft_printf("ti mancano %d coins\n", game->coins);
-}
+}*/

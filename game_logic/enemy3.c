@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 09:33:53 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/29 09:41:47 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/29 13:11:02 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int verticaldown(t_complete *game, int x)
 
 int verticalorizontalright(t_complete *game, int x)
 {
-	else if	(itright(game, x))
+	if	(itright(game, x))
 	{
 		return (1);
 	}
@@ -53,7 +53,7 @@ int verticalorizontalright(t_complete *game, int x)
 	}
 	if(itleft(game, x))
 	{
-		return (1;)
+		return (1);
 	}
 		return (0);
 }
@@ -111,7 +111,7 @@ int orizontaleft(t_complete *game, int x)
 	int z;
 	
 	z = 0;
-	else if (itleft(game, x))
+	if (itleft(game, x))
 	{
 		checkprox(game, x);
 		return (1);
