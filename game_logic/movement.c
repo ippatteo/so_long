@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 12:35:17 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/29 21:41:26 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/30 01:25:04 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,12 @@ int	youmove(t_complete *game, int mx, int my)
 		return (1);
 	}
 	if (game->map[mx][my] == 'E' && game->coins == 0)
-	{
-		game->map[mx][my] = game->map[game->p1x][game->p1y];
-		game->map[game->p1x][game->p1y] = '0';
 		return (2);
-	}
-        if (game->map[mx][my] == 'N')
-            return (3);
+    if (game->map[mx][my] == 'N')
+    {
+        ft_printf("hai perso\n");
+		exit_point(game);
+    }
 	return (0);
 }
 
@@ -47,17 +46,14 @@ void	up(t_complete *game)
 	{
 		game->steps++;
 		game->p1x--;
+        free(game->player);
+        mlx_xpm_file_to_image(game->mlx, "game_images/player.xpm",
+				&50, &50);
 		adding_in_graphics_aroundp(game);
 	}
 	if (x == 2)
 	{
 		ft_printf("hai vinto, daje\n");
-		exit_point(game);
-		return ;
-	}
-    if (x == 3)
-    {
-		ft_printf("hai perso\n");
 		exit_point(game);
 		return ;
 	}
@@ -81,12 +77,6 @@ void	down(t_complete *game)
 		exit_point(game);
 		return ;
 	}
-     if (x == 3)
-    {
-		ft_printf("hai perso\n");
-		exit_point(game);
-		return ;
-	}
 	return ;
 }
 
@@ -107,12 +97,6 @@ void	left(t_complete *game)
 		exit_point(game);
 		return ;
 	}
-     if (x == 3)
-    {
-		ft_printf("hai perso\n");
-		exit_point(game);
-		return ;
-	}
 		return ;
 }
 
@@ -130,12 +114,6 @@ void	right(t_complete *game)
 	if (x == 2)
 	{
 		ft_printf("hai vinto, daje\n");
-		exit_point(game);
-		return ;
-	}
-     if (x == 3)
-    {
-		ft_printf("hai perso\n");
 		exit_point(game);
 		return ;
 	}

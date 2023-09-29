@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 19:22:08 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/29 13:33:26 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/30 01:11:38 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ int	mapnroll(int ac, char **av, t_complete	*game)
 		if (!game->map)
 			return (0);
 		whereisp(game, 'P');
-        //takepositionenemy(game);
 	}
 	else
 		return (0);
@@ -102,5 +101,7 @@ int	startgame(int ac, char **av, t_complete *game)
 		ft_printf("error: mappa sbagliata\n");
 		return (0);
 	}
+        if (game->height < 10 || game->width < 10)
+            turnoffn(game);
 	return (1);
 }

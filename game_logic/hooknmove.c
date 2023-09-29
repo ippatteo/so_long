@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 13:23:32 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/29 22:31:09 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/30 01:08:38 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,6 @@ int	controls_working(int command, t_complete *game)
 	if (command == 100)
 		right(game);
     if (command == 32)
-		activateenemy(game);
-	return (1);
-}
-int	controls_enemy(int command, t_complete *game)
-{
-    if (command == 0)
 		activateenemy(game);
 	return (1);
 }
