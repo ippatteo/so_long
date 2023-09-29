@@ -6,11 +6,32 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 12:35:17 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/29 03:05:50 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/29 05:15:21 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long.h"
+
+void turnoffn(t_complete *game)
+{
+	int	a;
+	int	b;
+
+	a = 0;
+	b = 0;
+	while (game->map[a])
+	{
+		b = 0;
+		while (game->map[a][b])
+		{
+			if (game->map[a][b] == 'N')
+				game->map[a][b] = '0';
+			b++;
+		}
+		a++;
+	}
+	return ;
+}
 
 int	itmove(t_complete *game, int mx, int my)
 {
@@ -28,7 +49,7 @@ int	itmove(t_complete *game, int mx, int my)
 	return (0);
 }
 
-void	up(t_complete *game)
+int	itup(t_complete *game)
 {
 	int	x;
 
@@ -36,19 +57,19 @@ void	up(t_complete *game)
 	if (x)
 	{
 		game->n1x--;
-		adding_in_graphics_aroundp(game);
+		return (1);
 
 	}
 	if (x == 2)
 	{
 		ft_printf("hai perso\n");
 		exit_point(game);
-		return ;
+		return (1);
 	}
-	return ;
+	return (0);
 }
 
-void	down(t_complete *game)
+void	itdown(t_complete *game)
 {
 	int	x;
 
@@ -56,17 +77,18 @@ void	down(t_complete *game)
 	if (x)
 	{
 		game->n1x++;
+		return (1);
 	}
 	if (x == 2)
 	{
 		ft_printf("hai perso\n");
 		exit_point(game);
-		return ;
+		return (1);
 	}
-	return ;
+	return (0);
 }
 
-void	left(t_complete *game)
+int	itleft(t_complete *game)
 {
 	int	x;
 
@@ -74,18 +96,18 @@ void	left(t_complete *game)
 	if (x)
 	{
 		game->n1y--;
+		return (1)
+	}
 	if (x == 2)
 	{
 		ft_printf("hai perso\n");
 		exit_point(game);
-		return ;
+		return (1);
 	}
-	return ;
-    }  
+	return (0) ;
+}  
 
-} 
-
-int	right(t_complete *game)
+int	itright(t_complete *game)
 {
 	int	x;
 
@@ -104,28 +126,177 @@ int	right(t_complete *game)
 	return (0);
 }
 
-void intellenemy(t_complete *game, int x)
+int intellenemy(t_complete *game, int x)
 {
-	if((game->steps % 3 ) && game->f = 0 ||(game->steps % 3 ) &&  game->f = 1)
+	if (asimplechoise(game, x))
+		return (1)
+	if((game->steps % 3 ) && game->f = 0 || !(game->steps % 3 ) &&  game->f)
+	{
+		if(orizontal(game, x))
+			return (1);
+		else
 		{
-			if (game->p1y > game->n[x][1])
-				orizontalright(game, x);
-			else if (game->p1y > game->n[x][1])
-				orizontaleft(game, x);
+			checkprox(game, x)
+			return (0);
 		}
+	}		
+	if(!(game->steps % 3 ) && game->f = 0 || (game->steps % 3 ) &&  game->f)
+	{	
+			
+		if(vertical(game, x))
+			return (1);
+		else
+		{
+			checkprox(game, x)
+			return (0);
+		}
+	}
 }
+
+
+int orizontal(t_complete *game, int x)
+{
+		if (game->p1y > game->n[x][1])
+		{
+			if(orizontalright(game, x));
+				return (1);
+		}
+		else if (game->p1y < game->n[x][1])
+		{
+			if(orizontaleft(game, x));
+				return (1);
+		}
+		else 
+			return 0;
+}
+
+int vertical(t_complete *game, int x)
+{
+		if (game->p1x > game->n[x][0])
+		{
+			if(verticaldown(game, x));
+				return (1);
+		}
+		else if (game->p1x < game->n[x][0])
+		{
+			if(verticalup(game, x));
+				return (1);
+		}
+		else(0);
+}
+
+int asimplechoise(t_complete *game, int x)
+{
+	if (game->p1x == game->n[x][0])
+	{
+		if(orizontal(game, x))
+			return (1);
+		else
+			return (0);
+	}
+	else if (game->p1y == game->n[x][1])
+	{
+		if(vertical(game, x))
+			return (1);
+		else
+			return (0);
+	}
+	else 
+		return (0);
+}
+
+int verticaldown(t_complete *game, int x)
+{
+	int z
+	
+	z = 0;
+	if(itdown(game))
+	{
+		checkprox(game, x)
+			return (1)
+	}
+	else if (itup(game))
+	{
+		checkprox(game, x)
+		return (1);
+	}
+	else if(game->p1y < game->n[x][1])
+	{
+		z = verticalorizontaleft(game, x);
+	}
+	else
+		z = verticalorizontalright(game, x);
+	return (z)
+}
+
+int verticalorizontalright(t_complete *game, int x)
+{
+	if(itright(game))
+	{
+		checkprox(game, x)
+			return (1)
+	}
+	else if	(itleft(game))
+	{
+		checkprox(game, x)
+		return (1)
+	}
+	else 
+		return (0);
+}
+
+int verticalorizonteft(t_complete *game, int x)
+{
+	if(itleft(game))
+	{
+		checkprox(game, x)
+		return (1)
+	}
+	else if	(itright(game))
+	{
+		checkprox(game, x)
+		return (1)
+	}
+	else 
+		return (0);
+}
+
+verticalup(t_complete *game, int x)
+{
+	int z
+	
+	z = 0;
+	if(itup(game))
+	{
+		checkprox(game, x)
+			return (1)
+	}
+	else if (itdown(game))
+	{
+		checkprox(game, x)
+		return (1);
+	}
+	else if(game->p1y < game->n[x][1])
+	{
+		z = verticalorizontaleft(game, x);
+	}
+	else
+		z = verticalorizontalright(game, x);
+	return (z)
+}
+
 int orizontaleft(t_complete *game, x)
 {
 	int z;
 	
 	z = 0;
 	
-	else if (left(game))
+	else if (itleft(game))
 	{
 		checkprox(game, x)
 		return (1);
 	}
-	if (right(game))
+	if (itright(game))
 	{
 		checkprox(game, x)
 		return (1)
@@ -144,12 +315,12 @@ int orizontalright(t_complete *game, x)
 	int z;
 	
 	z = 0;
-	if (right(game))
+	if (itright(game))
 	{
 		checkprox(game, x)
 		return (1)
 	}
-	else if (left(game))
+	else if (itleft(game))
 	{
 		checkprox(game, x)
 		return (1);
@@ -165,18 +336,21 @@ int orizontalright(t_complete *game, x)
 
 void checkprox(t_complete *game, int x)
 {
-	game->f++	
+	if (game->f)
+		game->f = 0;
+	else
+		game->f++;
 	if (printproxymity(game, x))
 		printporcoddue
 }
 
 int orizverticalup(t_complete *game, int x)
-{	if(up(game))
+{	if(itup(game))
 	{
 		checkprox(game, x)
 			return (1)
 	}
-	else if	(down(game))
+	else if	(itdown(game))
 	{
 		checkprox(game, x)
 		return (1)
@@ -186,12 +360,12 @@ int orizverticalup(t_complete *game, int x)
 }
 
 int orizverticaldown(t_complete *game, int x)
-{	if(down(game))
+{	if(itdown(game))
 	{
 		checkprox(game, x)
 			return (1)
 	}
-	else if	(up(game))
+	else if	(itup(game))
 	{
 		checkprox(game, x)
 		return (1)

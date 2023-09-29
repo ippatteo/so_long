@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 13:23:32 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/28 17:42:45 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/29 05:42:33 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,7 @@ int	exit_point(t_complete *game)
 	while (a < game->height - 1)
 		free(game->map[a++]);
 	free(game->map);
+	if(game->en)
+		free(game->en);
 	exit(0);
 }

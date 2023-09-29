@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 12:08:37 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/29 01:36:52 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/29 05:07:23 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@
 
 typedef struct t_start
 {
-	int		f2	;
 	int		f;
 	int		en;
 	int		n1x;
@@ -42,6 +41,7 @@ typedef struct t_start
 	void	*mlx;
 	void	*mlx_win;
 	void	*floor;
+	void	*enemy;
 	void	*barrier;
 	void	*player;
 	void	*exit;

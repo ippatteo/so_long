@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 15:00:30 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/28 19:31:59 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/29 05:21:11 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,8 +102,6 @@ int	rectangular(t_complete *game)
 
 	a = 0;
 	b = ft_strlen(game->map[a]);
-	if (game->height == game->width)
-		return (0);
 	while (game->map[a])
 	{
 		if ((int)ft_strlen(game->map[a]) != b)

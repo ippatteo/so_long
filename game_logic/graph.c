@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 01:12:59 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/29 00:11:57 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/29 05:40:45 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	ifcenter(t_complete *game, int a, int b)
 		b = game->width - 1;
 	if (b < 0)
 		b = 0;
+	if (game->width < 10 || game->height < 10)
+		turnoffn(game);
 	ifcenter2(game, a, b);
 }
 
@@ -42,6 +44,9 @@ void	ifcenter2(t_complete *game, int a, int b)
 	if (game->map[a][b] == '0')
 		mlx_put_image_to_window(game->mlx, 
 			game->mlx_win, game->floor, game->d * 50, game->c * 50);
+	if (game->map[a][b] == 'N')
+		mlx_put_image_to_window(game->mlx, 
+			game->mlx_win, game->enemy, game->d * 50, game->c * 50);
 }
 
 void	place_images_in_game(t_complete *game)
@@ -59,6 +64,8 @@ void	place_images_in_game(t_complete *game)
 			"game_images/exit.xpm", &i, &j);
 	game->collectable = mlx_xpm_file_to_image(game->mlx,
 			"game_images/item.xpm", &i, &j);
+	game->enemy =mlx_xpm_file_to_image(game->mlx,
+			"game_images/enemy.xpm", &i, &j);
 }
 
 void	adding_in_graphics_aroundp(t_complete *game)
@@ -91,6 +98,7 @@ void	adding_in_graphics(t_complete *game)
 	int	b;
 
 	a = 0;
+	turnoffn(game);
 	while (game->map[a])
 	{
 		b = 0;
