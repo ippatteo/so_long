@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 09:33:30 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/29 13:09:11 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/29 21:36:03 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,18 +35,18 @@ void intellenemy(t_complete *game, int x)
 {
 	if (asimplechoise(game, x))
 		return ;
-	if(((game->steps % 3 ) && (game->f = 0)) || (!(game->steps % 3 ) &&  game->f))
+	if(((game->steps % 2 ) && (game->f == 0)) || (!(game->steps % 2 ) &&  game->f))
 	{
+        ft_printf("intel_1 %d\n", game->f);
 		if(orizontal(game, x))
 			return ;
-		flagf(game);
-		return ;
+        return ;
 	}		
-	if((!(game->steps % 3 ) && (game->f = 0)) || ((game->steps % 3 ) &&  game->f))
+	if((!(game->steps % 2 ) && (game->f == 0)) || ((game->steps % 2 ) &&  game->f))
 	{	
+        ft_printf("intel_2%d\n", game->f);
 		if(vertical(game, x))
 			return ;
-		flagf(game);
 		return ;
 	}
 }

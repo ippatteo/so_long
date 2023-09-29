@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 13:23:32 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/29 09:34:47 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/29 22:31:09 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	controls_working(int command, t_complete *game)
 {
+    ft_printf("comando = %d", command);
 	if (command == 65307)
 		exit_point(game);
 	if (command == 119)
@@ -24,6 +25,14 @@ int	controls_working(int command, t_complete *game)
 		left(game);
 	if (command == 100)
 		right(game);
+    if (command == 32)
+		activateenemy(game);
+	return (1);
+}
+int	controls_enemy(int command, t_complete *game)
+{
+    if (command == 0)
+		activateenemy(game);
 	return (1);
 }
 

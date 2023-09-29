@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 12:08:37 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/29 15:26:10 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/29 22:41:05 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,15 @@
 # include <fcntl.h>
 # include <errno.h>
 # include <string.h>
+# include <time.h>
 # include "../libft/libft.h"
 # include "../mlx_linux/mlx.h"
 # include "../printf/ft_printf.h"
 
 typedef struct t_start
 {
+    time_t  start_time;
+    int     tempoTrascorso;
     int     z;
     int     t;
 	int		f;

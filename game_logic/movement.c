@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 12:35:17 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/29 18:30:14 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/29 21:41:26 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ int	youmove(t_complete *game, int mx, int my)
 	if (game->map[mx][my] == '0')
 	{
 		game->map[mx][my] = game->map[game->p1x][game->p1y];
-		game->map[game->p1x][game->p1y] = '1';
+		game->map[game->p1x][game->p1y] = '0';
 		return (1);
 	}
 	if (game->map[mx][my] == 'C')
 	{
 		game->map[mx][my] = game->map[game->p1x][game->p1y];
-		game->map[game->p1x][game->p1y] = '1';
+		game->map[game->p1x][game->p1y] = '0';
 		game->coins--;
 		return (1);
 	}

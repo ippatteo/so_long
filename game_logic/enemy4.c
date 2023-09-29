@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 09:34:01 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/29 13:14:17 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/29 21:18:23 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,9 @@ void checkprox(t_complete *game, int x)
 	else
 		game->f++;
 	if (printproxymity(game, x))
+    {
 		adding_in_graphics_aroundp(game);
+    }
 }
 
 void flagf(t_complete *game)

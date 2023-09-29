@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 09:34:07 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/29 18:31:26 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/09/29 20:54:09 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,13 @@ void	activateenemy(t_complete *game)
 	a = 0;
 	while (a < game->en)
 	{
-		if(proxymity(game, a))
-			intellenemy(game, a++);
-		else
-			a++;
-	}
-}
+        if(proxymity(game, a))
+        {
+            intellenemy(game, a);
+        }
+        a++;
+    }
+}   
 
 void takepositionenemy(t_complete *game)
 {
@@ -68,7 +69,6 @@ int	printproxymity(t_complete *game, int x)
 	int	b;
 
 	game->z = 0;
-	game->t = 0;
 	a = game->n[x][0] - 5;
 	while (game->z < 11)
 	{
@@ -76,7 +76,7 @@ int	printproxymity(t_complete *game, int x)
 		game->t = 0;
 		while (game->t < 11)
 		{
-			if (foundp(game, a, b))
+			if (foundp(game, a, b++))
 				return (1);
 			game->t++;
 		}
@@ -100,7 +100,7 @@ int	proxymity(t_complete *game, int x)
 		game->t = 0;
 		while (game->t < 21)
 		{
-			if (foundp(game, a, b))
+			if (foundp(game, a, b++))
 				return (1);
 			game->t++;
 		}
