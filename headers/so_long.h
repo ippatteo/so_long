@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 12:08:37 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/29 22:41:05 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/10/02 19:59:41 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@
 
 typedef struct t_start
 {
-    time_t  start_time;
-    int     tempoTrascorso;
-    int     z;
-    int     t;
+	int		a;
+	int		b;
+    int		z;
+    int		t;
 	int		f;
 	int		en;
 	int		n1x;
@@ -53,7 +53,7 @@ typedef struct t_start
 	void	*collectable;
 }	t_complete;
 
-void	ifcenter2(t_complete *game, int a, int b);
+void	ifcenter2(t_complete *game);
 int		foundp(t_complete *game, int a, int b);
 int		proxymity(t_complete *game, int x);
 int		printproxymity(t_complete *game, int x);
@@ -85,7 +85,7 @@ int		controls_working(int command, t_complete *game);
 int		exit_point(t_complete *game);
 void	adding_in_graphics(t_complete *game);
 void	place_images_in_game(t_complete *game);
-void	ifcenter(t_complete *game, int c, int d);
+void	ifcenter(t_complete *game);
 int		pathfind(t_complete *game);
 int		startgame(int ac, char **av, t_complete *game);
 void	changeit(t_complete *game, int a, int b);
