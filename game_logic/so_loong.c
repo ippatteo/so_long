@@ -34,17 +34,11 @@ int	otherexit(void)
 	exit(0);
 }
 
-void calcolaTempo(t_complete *game) 
-{
-    time_t current_time = time(NULL);
-    game->tempoTrascorso = (int)(current_time - game->start_time);
-}
-
 int	enemove(t_complete *game)
 {
 	static int	time;
 
-	if (time == 10000)
+	if (time == 20000)
 	{
 		activateenemy(game);
 		time = 0;

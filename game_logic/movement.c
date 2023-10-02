@@ -29,11 +29,11 @@ int	youmove(t_complete *game, int mx, int my)
 	}
 	if (game->map[mx][my] == 'E' && game->coins == 0)
 		return (2);
-    if (game->map[mx][my] == 'N')
-    {
-        ft_printf("hai perso\n");
+	if (game->map[mx][my] == 'N')
+	{
+		ft_printf("hai perso\n");
 		exit_point(game);
-    }
+	}
 	return (0);
 }
 
@@ -46,9 +46,6 @@ void	up(t_complete *game)
 	{
 		game->steps++;
 		game->p1x--;
-        free(game->player);
-        mlx_xpm_file_to_image(game->mlx, "game_images/player.xpm",
-				&50, &50);
 		adding_in_graphics_aroundp(game);
 	}
 	if (x == 2)
@@ -90,14 +87,14 @@ void	left(t_complete *game)
 		game->steps++;
 		game->p1y--;
 		adding_in_graphics_aroundp(game);
-    }
+	}
 	if (x == 2)
 	{
 		ft_printf("hai vinto, daje\n");
 		exit_point(game);
 		return ;
 	}
-		return ;
+	return ;
 }
 
 void	right(t_complete *game)
