@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 09:34:07 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/10/03 01:08:18 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/10/05 01:47:39 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ void takepositionenemy(t_complete *game)
 	int	b;
 
     game->en = 0;
-	game->n = (int **)malloc(sizeof(int *) * scan1(game, 'N'));
+	game->n = (int **)ft_calloc(sizeof(int *), scan1(game, 'N'));
 	if (!game->n)
 		return ;
     while(game->en < scan1(game, 'N'))
     {
-         game->n[game->en] = (int *)malloc(sizeof(int) * 2);
+         game->n[game->en] = (int *)ft_calloc(sizeof(int), 2);
         if (!game->n[game->en])
             return ;
         game->en++;

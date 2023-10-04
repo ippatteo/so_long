@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 12:08:37 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/10/04 11:06:26 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/10/05 01:40:50 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@
 
 typedef struct t_start
 {
+    int     pd;
+    int     ed;
 	int		a;
 	int		b;
     int		z;
     int		t;
 	int		f;
 	int		en;
-	int		n1x;
-	int		n1y;
 	int		c;
 	int		d;
 	int		p1y;
@@ -46,19 +46,25 @@ typedef struct t_start
 	void	*mlx;
 	void	*mlx_win;
 	void	*floor;
-	void	*enemy;
+    void	*enemyf1;
+    void	*enemyf2;
 	void	*barrier;
-	void	*player;
+	void	*playerdown;
+    void	*playerup;
+    void	*playerleft;
+    void	*playerright;
 	void	*exit;
 	void	*collectable;
 }	t_complete;
 
-void printinfo(t_complete *game);
+void    enemyframe(t_complete *game);
+void    playerframe(t_complete *game);
+void    printinfo(t_complete *game);
 void	ifcenter2(t_complete *game);
 int		foundp(t_complete *game, int a, int b);
 int		proxymity(t_complete *game, int x);
 int		printproxymity(t_complete *game, int x);
-void takepositionenemy(t_complete *game);
+void    takepositionenemy(t_complete *game);
 void	activateenemy(t_complete *game);
 int		orizverticaldown(t_complete *game, int x);
 int		orizverticalup(t_complete *game, int x);
@@ -80,7 +86,6 @@ int		itdown(t_complete *game, int e);
 int		itup(t_complete *game, int e);
 int		itmove(t_complete *game, int mx, int my, int e);
 void	turnoffn(t_complete *game);
-//void	iffone(t_complete *game, int a, int b);
 void	adding_in_graphics_aroundp(t_complete *game);
 int		controls_working(int command, t_complete *game);
 int		exit_point(t_complete *game);

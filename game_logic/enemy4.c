@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 09:34:01 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/29 21:18:23 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/10/05 01:40:06 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,10 @@ void checkprox(t_complete *game, int x)
 		game->f++;
 	if (printproxymity(game, x))
     {
+        if (game->ed == 0)
+            game->ed = 1;
+        else if (game->ed == 1)
+            game->ed = 0;
 		adding_in_graphics_aroundp(game);
     }
 }
@@ -60,7 +64,7 @@ void flagf(t_complete *game)
 int orizverticalup(t_complete *game, int x)
 {	if(itup(game, x))
 	{
-			return (1);
+		return (1);
 	}
 	else if	(itleft(game, x))
 	{
