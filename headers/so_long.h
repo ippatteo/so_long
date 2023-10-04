@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 12:08:37 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/10/02 19:59:41 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/10/04 11:06:26 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ typedef struct t_start
 	void	*collectable;
 }	t_complete;
 
+void printinfo(t_complete *game);
 void	ifcenter2(t_complete *game);
 int		foundp(t_complete *game, int a, int b);
 int		proxymity(t_complete *game, int x);
@@ -92,10 +93,10 @@ void	changeit(t_complete *game, int a, int b);
 int		scan(t_complete *game);
 int		controlpath(t_complete *game);
 int		sq(t_complete *game, int x, int y, char a);
-void	right(t_complete *game);
-void	left(t_complete *game);
-void	down(t_complete *game);
-void	up(t_complete *game);
+int     right(t_complete *game);
+int	    left(t_complete *game);
+int	    down(t_complete *game);
+int	    up(t_complete *game);
 void	whereisp(t_complete *game, char C);
 int		getheight(char *c);
 void	printmap(char **c, t_complete *game);

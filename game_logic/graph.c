@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 01:12:59 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/10/02 20:00:15 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/10/04 11:05:53 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,18 +66,20 @@ void	place_images_in_game(t_complete *game)
 			"game_images/item.xpm", &i, &j);
 	game->enemy = mlx_xpm_file_to_image(game->mlx,
 			"game_images/enemy.xpm", &i, &j);
+    
 }
 
 void	adding_in_graphics_aroundp(t_complete *game)
 {
+    mlx_clear_window(game->mlx, game->mlx_win);
 	game->c = 0;
 	game->d = 0;
 	game->a = game->p1x - 5;
-	while (game->c < 11)
+	while (game->c < 10)
 	{
 		game->b = game->p1y - 5;
 		game->d = 0;
-		while (game->d < 11)
+		while (game->d < 10)
 		{
 			ifcenter(game);
 			game->d++;
@@ -86,27 +88,15 @@ void	adding_in_graphics_aroundp(t_complete *game)
 		game->c++;
 		game->a++;
 	}
-	ft_printf("hai fatto %d passi\n", game->steps);
-	ft_printf("ti mancano %d coins\n", game->coins);
+    printinfo(game);
 }
 
-/*void	adding_in_graphics(t_complete *game)
+void printinfo(t_complete *game)
 {
-	int	a;
-	int	b;
-
-	a = 0;
-	turnoffn(game);
-	while (game->map[a])
-	{
-		b = 0;
-		while (game->map[a][b])
-		{
-			iffone(game, a, b);
-			b++;
-		}
-		a++;
-	}
-	ft_printf("hai fatto %d passi\n", game->steps);
-	ft_printf("ti mancano %d coins\n", game->coins);
-}*/
+    mlx_string_put(game->mlx, game->mlx_win,
+			20, 515, 0xFFFFFF, "HAI FATTO     PASSI,   TI MANCANO     COINS");
+    mlx_string_put(game->mlx, game->mlx_win,
+			80, 515, 0xFFFFFF, ft_itoa(game->steps));
+	mlx_string_put(game->mlx, game->mlx_win,
+			400, 515, 0xFFFFFF, ft_itoa(game->coins));
+}

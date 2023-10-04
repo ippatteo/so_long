@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 12:35:17 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/30 01:25:04 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/10/03 03:09:53 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	youmove(t_complete *game, int mx, int my)
 	return (0);
 }
 
-void	up(t_complete *game)
+int	up(t_complete *game)
 {
 	int	x;
 
@@ -52,12 +52,12 @@ void	up(t_complete *game)
 	{
 		ft_printf("hai vinto, daje\n");
 		exit_point(game);
-		return ;
+		return (x);
 	}
-	return ;
+	return (x);
 }
 
-void	down(t_complete *game)
+int	down(t_complete *game)
 {
 	int	x;
 
@@ -72,12 +72,12 @@ void	down(t_complete *game)
 	{
 		ft_printf("hai vinto, daje\n");
 		exit_point(game);
-		return ;
+		return (x);
 	}
-	return ;
+	return (x);
 }
 
-void	left(t_complete *game)
+int	left(t_complete *game)
 {
 	int	x;
 
@@ -92,12 +92,12 @@ void	left(t_complete *game)
 	{
 		ft_printf("hai vinto, daje\n");
 		exit_point(game);
-		return ;
+		return (x);
 	}
-	return ;
+	return (x);
 }
 
-void	right(t_complete *game)
+int	right(t_complete *game)
 {
 	int	x;
 
@@ -112,7 +112,7 @@ void	right(t_complete *game)
 	{
 		ft_printf("hai vinto, daje\n");
 		exit_point(game);
-		return ;
+		return (x);
 	}
-	return ;
+	return (x);
 }
