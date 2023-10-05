@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 10:49:43 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/10/05 01:39:07 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/10/05 16:39:57 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	enemove(t_complete *game)
     int a;
 
     a = 0;
-	if (time == 20000)
+	if (time == 200000)
 	{
         takepositionenemy(game);
 		activateenemy(game);
@@ -57,20 +57,20 @@ int	main(int ac, char **av)
 {
 	t_complete	game;
 	game.steps = 0;
-    game.pd = 0;
-    game.ed = 0;
+    game.winh = 11;
+    game.winw = 11;
+	game.cin = 5;
 	if (startgame(ac, av, &game))
 	{
 		game.mlx = mlx_init();
 		place_images_in_game(&game);
-		game.mlx_win = mlx_new_window(game.mlx, (10 * 100), 
-				(10 * 100 + 20), "solong");
+		game.mlx_win = mlx_new_window(game.mlx, (game.winw * 100),
+				(game.winh * 100 + 20), "solong");
 		adding_in_graphics_aroundp(&game);
-        mlx_hook(game.mlx_win, 17, 0, otherexit, NULL);
-        mlx_key_hook(game.mlx_win, controls_working, &game);
-        mlx_loop_hook(game.mlx, enemove, &game);
-        mlx_loop(game.mlx);
+		mlx_hook(game.mlx_win, 17, 0, otherexit, NULL);
+		mlx_key_hook(game.mlx_win, controls_working, &game);
+		mlx_loop_hook(game.mlx, enemove, &game);
+		mlx_loop(game.mlx);
     }
-    
     return (0);
 }

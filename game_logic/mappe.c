@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 19:22:08 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/30 01:11:38 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/10/05 17:01:45 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,18 @@ int	startgame(int ac, char **av, t_complete *game)
 		ft_printf("error: mappa sbagliata\n");
 		return (0);
 	}
-        if (game->height < 10 || game->width < 10)
-            turnoffn(game);
+	//proportions(game);
+	game->pd = 0;
+	game->ed = 0;
 	return (1);
+}
+
+void	proportions(t_complete *game)
+{
+	if (game->height < 12)
+            game->winh = game->height;
+	if (game->width < 12)
+		game->winw = game->width;
+	if (game->height < 12 || game->width < 12)
+		game->cin = 2;
 }

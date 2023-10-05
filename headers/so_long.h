@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 12:08:37 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/10/05 01:40:50 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/10/05 16:37:12 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,11 @@
 
 typedef struct t_start
 {
-    int     pd;
-    int     ed;
+	int		cin;
+	int		winh;
+	int		winw;
+    int		pd;
+    int		ed;
 	int		a;
 	int		b;
     int		z;
@@ -57,6 +60,7 @@ typedef struct t_start
 	void	*collectable;
 }	t_complete;
 
+void	proportions(t_complete *game);
 void    enemyframe(t_complete *game);
 void    playerframe(t_complete *game);
 void    printinfo(t_complete *game);

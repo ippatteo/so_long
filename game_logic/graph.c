@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 01:12:59 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/10/05 01:11:42 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/10/05 17:30:12 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,21 @@
 
 void	ifcenter(t_complete *game)
 {
-	if (game->a < 0)
+	/*if (game->a < 0)
 		game->a = 0;
 	if (game->a > (game->height - 1))
 		game->a = game->height - 1;
 	if (game->b > (game->width - 1))
 		game->b = game->width - 1;
 	if (game->b < 0)
-		game->b = 0;
-	if (game->width < 10 || game->height < 10)
-		turnoffn(game);
-	ifcenter2(game);
+		game->b = 0;*/
+	if (game->a < 0 ||
+		game->a > (game->height - 1) ||
+		game->b > (game->width - 1) || game->b < 0)
+		mlx_put_image_to_window(game->mlx,
+			game->mlx_win, game->barrier, game->d * 100, game->c * 100);
+	else
+		ifcenter2(game);
 }
 
 void	ifcenter2(t_complete *game)
@@ -63,7 +67,7 @@ void	place_images_in_game(t_complete *game)
     game->playerright = mlx_xpm_file_to_image(game->mlx,
 			"solongsprites/playerright.xpm", &i, &j);
 	game->exit = mlx_xpm_file_to_image(game->mlx,
-			"solongsprites/portaopen.xpm", &i, &j);
+			"solongsprites/Portaopen.xpm", &i, &j);
 	game->collectable = mlx_xpm_file_to_image(game->mlx,
 			"solongsprites/vaccine.xpm", &i, &j);
 	game->enemyf1 = mlx_xpm_file_to_image(game->mlx,
@@ -77,12 +81,12 @@ void	adding_in_graphics_aroundp(t_complete *game)
     mlx_clear_window(game->mlx, game->mlx_win);
 	game->c = 0;
 	game->d = 0;
-	game->a = game->p1x - 5;
-	while (game->c < 10)
+	game->a = game->p1x - game->cin;
+	while (game->c < game->winh)
 	{
-		game->b = game->p1y - 5;
+		game->b = game->p1y - game->cin;
 		game->d = 0;
-		while (game->d < 10)
+		while (game->d < game->winw)
 		{
 			ifcenter(game);
 			game->d++;
@@ -127,10 +131,16 @@ void    playerframe(t_complete *game)
 }
 void printinfo(t_complete *game)
 {
-    mlx_string_put(game->mlx, game->mlx_win,
-			20, 515, 0xFFFFFF, "HAI FATTO     PASSI,   TI MANCANO     COINS");
-    mlx_string_put(game->mlx, game->mlx_win,
-			80, 515, 0xFFFFFF, ft_itoa(game->steps));
+	char	*x;
+
+	x = ft_itoa(game->steps);
 	mlx_string_put(game->mlx, game->mlx_win,
-			400, 515, 0xFFFFFF, ft_itoa(game->coins));
+		20, 1115, 0xFFFFFF, "HAI FATTO     PASSI,   TI MANCANO     COINS");
+	mlx_string_put(game->mlx, game->mlx_win,
+		80, 1115, 0xFFFFFF, x);
+	free(x);
+	x = ft_itoa(game->coins);
+	mlx_string_put(game->mlx, game->mlx_win,
+		400, 1115, 0xFFFFFF, x);
+	free(x);
 }
