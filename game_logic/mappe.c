@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 19:22:08 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/10/05 17:01:45 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/10/07 11:50:55 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,8 @@ int	mapnroll(int ac, char **av, t_complete	*game)
 	if (ac == 2)
 	{
 		fd1 = open(av[1], O_RDONLY);
+		if (fd1 == -1)
+			return (0);
 		line = get_next_file(fd1);
 		game->height = getheight(line);
 		game->map = ft_split(line, '\n');
@@ -101,18 +103,8 @@ int	startgame(int ac, char **av, t_complete *game)
 		ft_printf("error: mappa sbagliata\n");
 		return (0);
 	}
-	//proportions(game);
+	proportions(game);
 	game->pd = 0;
 	game->ed = 0;
 	return (1);
-}
-
-void	proportions(t_complete *game)
-{
-	if (game->height < 12)
-            game->winh = game->height;
-	if (game->width < 12)
-		game->winw = game->width;
-	if (game->height < 12 || game->width < 12)
-		game->cin = 2;
 }

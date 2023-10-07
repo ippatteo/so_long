@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hooknmove.c                                        :+:      :+:    :+:   */
+/*   mappe2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/23 13:23:32 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/24 15:52:45 by mcamilli         ###   ########.fr       */
+/*   Created: 2023/10/06 11:51:22 by mcamilli          #+#    #+#             */
+/*   Updated: 2023/10/06 11:51:54 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long.h"
 
-int	controls_working(int command,t_complete *game)
+void	proportions(t_complete *game)
 {
-	ft_printf("il comando = %d", command);
-	if (command == 65307)
-		exit_point(game);
-	if (command == 119)
-		up(game);
-	if (command == 115)
-		down(game);
-	if (command == 97)
-		left(game);
-	if (command == 100)
-		right(game);
-	return (1);
+	if (game->height < 12)
+		game->winh = game->height;
+	if (game->width < 12)
+		game->winw = game->width;
+	if (game->height < 12 || game->width < 12)
+		game->cin = 2;
 }

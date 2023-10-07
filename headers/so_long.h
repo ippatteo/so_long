@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 12:08:37 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/10/05 16:37:12 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/10/06 11:15:19 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ typedef struct t_start
 	int		cin;
 	int		winh;
 	int		winw;
-    int		pd;
-    int		ed;
+	int		pd;
+	int		ed;
 	int		a;
 	int		b;
-    int		z;
-    int		t;
+	int		z;
+	int		t;
 	int		f;
 	int		en;
 	int		c;
@@ -49,26 +49,27 @@ typedef struct t_start
 	void	*mlx;
 	void	*mlx_win;
 	void	*floor;
-    void	*enemyf1;
-    void	*enemyf2;
+	void	*enemyf1;
+	void	*enemyf2;
 	void	*barrier;
 	void	*playerdown;
-    void	*playerup;
-    void	*playerleft;
-    void	*playerright;
+	void	*playerup;
+	void	*playerleft;
+	void	*playerright;
 	void	*exit;
 	void	*collectable;
 }	t_complete;
 
+void	takepositionenemy2(t_complete *game, int a, int b);
 void	proportions(t_complete *game);
-void    enemyframe(t_complete *game);
-void    playerframe(t_complete *game);
-void    printinfo(t_complete *game);
+void	enemyframe(t_complete *game);
+void	playerframe(t_complete *game);
+void	printinfo(t_complete *game);
 void	ifcenter2(t_complete *game);
 int		foundp(t_complete *game, int a, int b);
 int		proxymity(t_complete *game, int x);
 int		printproxymity(t_complete *game, int x);
-void    takepositionenemy(t_complete *game);
+void	takepositionenemy(t_complete *game);
 void	activateenemy(t_complete *game);
 int		orizverticaldown(t_complete *game, int x);
 int		orizverticalup(t_complete *game, int x);
@@ -102,10 +103,10 @@ void	changeit(t_complete *game, int a, int b);
 int		scan(t_complete *game);
 int		controlpath(t_complete *game);
 int		sq(t_complete *game, int x, int y, char a);
-int     right(t_complete *game);
-int	    left(t_complete *game);
-int	    down(t_complete *game);
-int	    up(t_complete *game);
+int		right(t_complete *game);
+int		left(t_complete *game);
+int		down(t_complete *game);
+int		up(t_complete *game);
 void	whereisp(t_complete *game, char C);
 int		getheight(char *c);
 void	printmap(char **c, t_complete *game);

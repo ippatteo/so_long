@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hooknmove.c                                        :+:      :+:    :+:   */
+/*   enemy6.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/23 13:23:32 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/24 15:52:45 by mcamilli         ###   ########.fr       */
+/*   Created: 2023/10/06 11:16:40 by mcamilli          #+#    #+#             */
+/*   Updated: 2023/10/06 11:17:11 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long.h"
 
-int	controls_working(int command,t_complete *game)
+int	foundp(t_complete *game, int a, int b)
 {
-	ft_printf("il comando = %d", command);
-	if (command == 65307)
-		exit_point(game);
-	if (command == 119)
-		up(game);
-	if (command == 115)
-		down(game);
-	if (command == 97)
-		left(game);
-	if (command == 100)
-		right(game);
-	return (1);
+	if (a < 0)
+		a = 0;
+	if (a > (game->height - 1))
+		a = game->height - 1;
+	if (b > (game->width - 1))
+		b = game->width - 1;
+	if (b < 0)
+		b = 0;
+	if (game->map[a][b] == 'P')
+		return (1);
+	else
+		return (0);
 }

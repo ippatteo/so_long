@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 09:31:56 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/29 21:03:50 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/10/06 10:56:24 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	itmove(t_complete *game, int mx, int my, int e)
 	}
 	if (game->map[mx][my] == 'P')
 	{
-        ft_printf("hai perso\n");
+		ft_printf("hai perso\n");
 		exit_point(game);
 		return (2);
 	}

@@ -6,7 +6,7 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 10:49:43 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/10/05 16:39:57 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/10/06 11:59:25 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,31 +37,27 @@ int	otherexit(void)
 int	enemove(t_complete *game)
 {
 	static int	time;
-    int a;
 
-    a = 0;
-	if (time == 200000)
+	if (time == 50000)
 	{
-        takepositionenemy(game);
 		activateenemy(game);
 		time = 0;
-        a = 0;
-	    while (a < game->en - 1)
-		    free(game->n[a++]);
-        free(game->n);
 	}
 	time++;
 	return (0);
 }
+
 int	main(int ac, char **av)
 {
 	t_complete	game;
+
 	game.steps = 0;
-    game.winh = 11;
-    game.winw = 11;
+	game.winh = 11;
+	game.winw = 11;
 	game.cin = 5;
 	if (startgame(ac, av, &game))
 	{
+		takepositionenemy(&game);
 		game.mlx = mlx_init();
 		place_images_in_game(&game);
 		game.mlx_win = mlx_new_window(game.mlx, (game.winw * 100),
@@ -71,6 +67,6 @@ int	main(int ac, char **av)
 		mlx_key_hook(game.mlx_win, controls_working, &game);
 		mlx_loop_hook(game.mlx, enemove, &game);
 		mlx_loop(game.mlx);
-    }
-    return (0);
+	}
+	return (0);
 }

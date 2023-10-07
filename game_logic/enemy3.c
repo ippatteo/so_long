@@ -6,23 +6,23 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 09:33:53 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/09/29 13:11:02 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/10/06 11:05:52 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long.h"
 
-int verticaldown(t_complete *game, int x)
+int	verticaldown(t_complete *game, int x)
 {
-	int z;
-	
+	int	z;
+
 	z = 0;
-	if(itdown(game, x))
+	if (itdown(game, x))
 	{
 		checkprox(game, x);
-			return (1);
+		return (1);
 	}
-	else if(game->p1y < game->n[x][1])
+	else if (game->p1y < game->n[x][1])
 		z = verticalorizontaleft(game, x);
 	else if (game->p1y > game->n[x][1])
 		z = verticalorizontalright(game, x);
@@ -37,43 +37,42 @@ int verticaldown(t_complete *game, int x)
 	return (z);
 }
 
-int verticalorizontalright(t_complete *game, int x)
+int	verticalorizontalright(t_complete *game, int x)
 {
-	if	(itright(game, x))
+	if (itright(game, x))
 	{
 		return (1);
 	}
-	else if(itup(game, x))
+	else if (itup(game, x))
 	{
 		return (1);
 	}
-	else if(itdown(game, x))
+	else if (itdown(game, x))
 	{
 		return (1);
 	}
-	if(itleft(game, x))
+	if (itleft(game, x))
 	{
 		return (1);
 	}
-		return (0);
+	return (0);
 }
 
-
-int verticalorizontaleft(t_complete *game, int x)
+int	verticalorizontaleft(t_complete *game, int x)
 {
-	if(itleft(game, x))
+	if (itleft(game, x))
 	{
 		return (1);
 	}
-	else if(itup(game, x))
+	else if (itup(game, x))
 	{
 		return (1);
 	}
-	else if(itdown(game, x))
+	else if (itdown(game, x))
 	{
 		return (1);
 	}
-	else if	(itright(game, x))
+	else if (itright(game, x))
 	{
 		return (1);
 	}
@@ -83,15 +82,15 @@ int verticalorizontaleft(t_complete *game, int x)
 
 int	verticalup(t_complete *game, int x)
 {
-	int z;
-	
+	int	z;
+
 	z = 0;
-	if(itup(game, x))
+	if (itup(game, x))
 	{
 		checkprox(game, x);
-			return (1);
+		return (1);
 	}
-	else if(game->p1y < game->n[x][1])
+	else if (game->p1y < game->n[x][1])
 		z = verticalorizontaleft(game, x);
 	else if (game->p1y > game->n[x][1])
 		z = verticalorizontalright(game, x);
@@ -106,19 +105,19 @@ int	verticalup(t_complete *game, int x)
 	return (z);
 }
 
-int orizontaleft(t_complete *game, int x)
+int	orizontaleft(t_complete *game, int x)
 {
-	int z;
-	
+	int	z;
+
 	z = 0;
 	if (itleft(game, x))
 	{
 		checkprox(game, x);
 		return (1);
 	}
-	else if(game->p1x < game->n[x][0])
+	else if (game->p1x < game->n[x][0])
 		z = orizverticalup(game, x);
-	else if(game->p1x > game->n[x][0])
+	else if (game->p1x > game->n[x][0])
 		z = orizverticaldown(game, x);
 	else if (game->p1x == game->n[x][0] && !(game->steps % 2))
 		z = orizverticalup(game, x);
@@ -126,7 +125,7 @@ int orizontaleft(t_complete *game, int x)
 		z = orizverticaldown(game, x);
 	else
 		z = itright(game, x);
-	if(z)
+	if (z)
 		checkprox(game, x);
 	return (z);
 }

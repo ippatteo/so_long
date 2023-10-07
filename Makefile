@@ -15,7 +15,7 @@ all:
 	make -C $(MINILIBX)
 	$(CC) $(CFLAGS) $(SOURCE) $(PRINTF) $(LIBFT)/libft.a -L/$(LIBFT)  $(LIBRARY) -o $(NAME)
 
-clean:
+clean: fclean
 
 fclean: clean
 		make re -C $(MINILIBX)

@@ -6,25 +6,25 @@
 /*   By: mcamilli <mcamilli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/29 09:34:01 by mcamilli          #+#    #+#             */
-/*   Updated: 2023/10/05 01:40:06 by mcamilli         ###   ########.fr       */
+/*   Updated: 2023/10/06 11:08:38 by mcamilli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../headers/so_long.h"
 
-int orizontalright(t_complete *game, int x)
+int	orizontalright(t_complete *game, int x)
 {
-	int z;
-	
+	int	z;
+
 	z = 0;
 	if (itright(game, x))
 	{
 		checkprox(game, x);
 		return (1);
 	}
-	else if(game->p1x < game->n[x][0])
+	else if (game->p1x < game->n[x][0])
 		z = orizverticalup(game, x);
-	else if(game->p1x > game->n[x][0])
+	else if (game->p1x > game->n[x][0])
 		z = orizverticaldown(game, x);
 	else if (game->p1x == game->n[x][0] && !(game->steps % 2))
 		z = orizverticalup(game, x);
@@ -32,28 +32,28 @@ int orizontalright(t_complete *game, int x)
 		z = orizverticaldown(game, x);
 	else
 		z = itleft(game, x);
-	if(z)
+	if (z)
 		checkprox(game, x);
 	return (z);
 }
 
-void checkprox(t_complete *game, int x)
+void	checkprox(t_complete *game, int x)
 {
 	if (game->f)
 		game->f = 0;
 	else
 		game->f++;
 	if (printproxymity(game, x))
-    {
-        if (game->ed == 0)
-            game->ed = 1;
-        else if (game->ed == 1)
-            game->ed = 0;
+	{
+		if (game->ed == 0)
+			game->ed = 1;
+		else if (game->ed == 1)
+			game->ed = 0;
 		adding_in_graphics_aroundp(game);
-    }
+	}
 }
 
-void flagf(t_complete *game)
+void	flagf(t_complete *game)
 {
 	if (game->f)
 		game->f = 0;
@@ -61,44 +61,46 @@ void flagf(t_complete *game)
 		game->f++;
 }
 
-int orizverticalup(t_complete *game, int x)
-{	if(itup(game, x))
+int	orizverticalup(t_complete *game, int x)
+{
+	if (itup(game, x))
 	{
 		return (1);
 	}
-	else if	(itleft(game, x))
+	else if (itleft (game, x))
 	{
 		return (1);
 	}
-	else if	(itright(game, x))
+	else if (itright(game, x))
 	{
 		return (1);
 	}
-	else if	(itdown(game, x))
+	else if (itdown(game, x))
 	{
 		return (1);
 	}
-	else 
+	else
 		return (0);
 }
 
-int orizverticaldown(t_complete *game, int x)
-{	if(itdown(game, x))
+int	orizverticaldown(t_complete *game, int x)
+{
+	if (itdown(game, x))
 	{
 		return (1);
 	}
-	else if	(itleft(game, x))
+	else if (itleft(game, x))
 	{
 		return (1);
 	}
-	else if	(itright(game, x))
+	else if (itright(game, x))
 	{
 		return (1);
 	}
-	else if	(itup(game, x))
+	else if (itup(game, x))
 	{
 		return (1);
 	}
-	else 
+	else
 		return (0);
 }
